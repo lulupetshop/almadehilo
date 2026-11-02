@@ -23,7 +23,7 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: columna única para celular (máx. 640px), boutique creativa: crema dominante, bandas nude, rótulos espaciados
    con filete fino, cajas de 5px. Las llamadas a la acción son el único elemento en rosa profundo. */
@@ -171,12 +171,12 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 .adh-oferta-lista li{display:flex;gap:10px;padding-block:9px;border-top:1px solid var(--adh-linea);font-size:.97rem}
 .adh-oferta-lista li::before{content:"✓";color:var(--adh-rosa-boton);font-weight:600}
 .adh-precio{display:flex;flex-direction:column;gap:2px;align-items:center}
-.adh-precio-antes{text-decoration:line-through;font-size:1.05rem}
-.adh-precio-num{font-family:var(--adh-display);font-weight:600;font-size:3.4rem;line-height:1.05;color:var(--adh-topo-osc);font-variant-numeric:tabular-nums lining-nums}
+.adh-precio-antes{text-decoration:line-through;font-size:1.25rem;font-weight:500}
+.adh-precio-num{font-family:var(--adh-display);font-weight:700;font-size:4.3rem;-webkit-text-stroke:1.5px currentColor;line-height:1.05;color:var(--adh-topo-osc);font-variant-numeric:tabular-nums lining-nums}
 .adh-precio-nota{font-size:.88rem}
 .adh-reloj-box{width:100%;background:var(--adh-papel);border-radius:var(--adh-radio);padding:14px 16px;display:flex;flex-direction:column;gap:2px;color:var(--adh-topo-osc)}
 .adh-reloj-box span{font-size:.9rem}
-.adh-reloj{font-family:var(--adh-display);font-weight:600;font-size:2.6rem;line-height:1.1;font-variant-numeric:tabular-nums lining-nums;letter-spacing:.04em}
+.adh-reloj-box .adh-reloj{font-family:var(--adh-display);font-weight:600;font-size:2.6rem;line-height:1.1;font-variant-numeric:tabular-nums lining-nums;letter-spacing:.04em}
 .adh-pasos{display:grid;gap:12px;counter-reset:paso;width:100%;text-align:left}
 .adh-pasos li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;font-size:.94rem}
 .adh-pasos li::before{counter-increment:paso;content:counter(paso);width:30px;height:30px;border-radius:50%;border:1px solid var(--adh-arcilla);color:var(--adh-topo-osc);display:flex;align-items:center;justify-content:center;font-family:var(--adh-display);font-weight:600;font-size:1.05rem}
@@ -253,7 +253,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 .adh-fija{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:50;width:min(460px,calc(100% - 32px));display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 22px;border-radius:999px;background:var(--adh-rosa-boton);color:#FFFFFF !important;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 16px 32px -14px rgba(94,72,68,.75);transition:background-color .25s ease-out,box-shadow .25s ease-out}
 .adh-fija:hover{background:var(--adh-rosa-hover)}
 .adh-fija-precio{display:flex;flex-direction:column;line-height:1.1;min-width:0}
-.adh-fija-precio b{font-family:var(--adh-display);font-weight:600;font-size:1.4rem;color:#FFFFFF}
+.adh-fija-precio b{font-family:var(--adh-display);font-weight:700;font-size:1.75rem;color:#FFFFFF;-webkit-text-stroke:1.5px currentColor;letter-spacing:.02em;font-variant-numeric:lining-nums}
 .adh-fija-precio small{font-size:.74rem;color:#FFFFFF;font-variant-numeric:tabular-nums}
 .adh-fija-cta{display:inline-flex;align-items:center;gap:8px;background:var(--adh-crema);color:var(--adh-topo-osc);border-radius:999px;padding:12px 18px;font-size:.92rem;font-weight:600;white-space:nowrap}
 .adh-fija-cta svg{width:16px;height:16px;transition:transform .2s ease-out}
