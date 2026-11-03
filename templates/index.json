@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main": {
+      "type": "landing-alma-de-hilo",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}
