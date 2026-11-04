@@ -267,6 +267,29 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   .adh-autora{grid-template-columns:220px 1fr;align-items:center}
   .adh-oferta{padding:40px 36px}
 }
+
+/* 7 bonos de regalo: recuadro con la portada pegada a la izquierda y "Gratis hoy" que sale de la imagen */
+.adh-regalo-tag{display:inline-flex;align-items:center;gap:8px;background:var(--adh-nude-suave);border:1px solid var(--adh-linea);border-radius:999px;padding:6px 16px;font-size:.92rem;font-weight:500;color:var(--adh-topo-osc)}
+.adh-bonos{display:grid;gap:16px;width:100%;margin-top:6px}
+.adh-bono{display:grid;grid-template-columns:116px 1fr;gap:16px;align-items:center;background:var(--adh-degradado);border:1px solid var(--adh-linea);border-radius:var(--adh-radio);padding:12px 16px 12px 12px}
+.adh-bono-img{position:relative}
+.adh-bono-img img,.adh-bono-ph{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--adh-radio);box-shadow:0 10px 18px -12px rgba(94,72,68,.6)}
+.adh-bono-ph{border:1.5px dashed var(--adh-arcilla);background:var(--adh-nude-suave);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--adh-topo-osc);box-shadow:none}
+.adh-bono-gratis{position:absolute;top:-10px;left:-8px;background:var(--adh-rosa-boton);color:#FFFFFF;border-radius:999px;padding:4px 10px;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;box-shadow:0 6px 14px -6px rgba(94,72,68,.8);transform:rotate(-8deg) scale(0);transform-origin:center}
+.adh-bono.is-visible .adh-bono-gratis{animation:adh-pop .5s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes adh-pop{0%{transform:rotate(-8deg) scale(0)}100%{transform:rotate(-8deg) scale(1)}}
+.adh-bono-txt{display:flex;flex-direction:column;gap:6px;min-width:0;text-align:center}
+.adh-bono h3{font-size:1.3rem;line-height:1.15}
+.adh-bono h3 small{display:block;font-family:var(--adh-body);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--adh-rosa-boton);margin-bottom:4px}
+.adh-bono-txt p{font-size:.9rem;line-height:1.5}
+.adh-bono-precio{display:flex;justify-content:center;align-items:baseline;gap:10px}
+.adh-bono-precio s{font-size:.95rem}
+.adh-bono-precio b{font-family:var(--adh-display);font-weight:700;font-size:1.6rem;color:var(--adh-rosa-boton)}
+.adh-bonos-total{font-size:1rem;color:var(--adh-topo-osc)}
+.adh-bonos-total s{margin-right:6px}
+.adh-bonos-total b{font-family:var(--adh-display);font-size:1.5rem;color:var(--adh-rosa-boton)}
+@media (min-width:560px){.adh-bono{grid-template-columns:140px 1fr;gap:22px}}
+@media (prefers-reduced-motion:reduce){.adh-bono-gratis{transform:rotate(-8deg) scale(1)}.adh-bono.is-visible .adh-bono-gratis{animation:none}}
 @media (prefers-reduced-motion:reduce){
   .adh *{transition:none !important}
 }
@@ -293,6 +316,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
       <p class="adh-lead">Un método paso a paso para aprender macramé de verdad, más 1.000 patrones ordenados por nivel para que siempre tengas tu próximo proyecto esperándote. Sin cursos caros ni horas perdidas entre tutoriales.</p>
       <div class="adh-foto adh-foto--portada" data-adh-video="videoPortadaUrl" data-video-class="adh-video adh-video--portada">[VIDEO: portada]</div>
       <a class="adh-btn" href="#oferta" data-adh-cta data-pay><span data-pay-txt>Obtener por $15.990</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <p class="adh-regalo-tag">🎁 + 7 ebooks exclusivos de regalo</p>
       <div class="adh-micro adh-micro--ovillo"><span>Para toda la vida</span><svg class="adh-ovillo" viewBox="0 0 16 16" aria-hidden="true"><circle class="o-bola" cx="7.5" cy="7.5" r="6.2"/><path class="o-hebra" d="M2.6 6c3-1.5 6.8-1.4 9.8.3M2.2 8.9c3.3-1.3 7.1-1.1 10.3.6M4.8 2.3c-.9 3.3-.6 7.3 1.3 10.3M9.2 1.6c-1.3 3.5-1.1 8.3.8 11.6"/><path class="o-cola" d="M12.6 11.4c1 .8 1.7 1.9 2.1 3.2"/></svg><span>Descarga inmediata</span></div>
     </div>
   </header>
@@ -359,12 +383,87 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
     </div>
   </section>
 
+  <!-- 7 BONOS DE REGALO -->
+  <section class="adh-band adh-band--suave" id="regalos">
+    <div class="adh-wrap adh-centro">
+      <p class="adh-label">Comprando hoy</p>
+      <h2>Te llevás 7 ebooks exclusivos de regalo</h2>
+      <p>Con tu compra de 1000 Patrones de Macramé. Acceso inmediato y compra 100% segura.</p>
+      <ul class="adh-bonos">
+        <li class="adh-bono">
+          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 1]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-txt">
+            <h3><small>Bonus 1</small>Calculadora de Hilo</h3>
+            <p>Poné el tamaño de tu pieza y al instante sabés cuántos cordones y cuántos metros de hilo comprar. Nunca más gastar de más ni quedarte corta.</p>
+            <p class="adh-bono-precio"><s>$12.990</s> <b>$0</b></p>
+          </div>
+        </li>
+        <li class="adh-bono">
+          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 2]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-txt">
+            <h3><small>Bonus 2</small>Colgantes de plantas paso a paso</h3>
+            <p>El proyecto que más se regala y más se vende, explicado de punta a punta.</p>
+            <p class="adh-bono-precio"><s>$14.990</s> <b>$0</b></p>
+          </div>
+        </li>
+        <li class="adh-bono">
+          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 3]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-txt">
+            <h3><small>Bonus 3</small>Macramé para vender</h3>
+            <p>Cómo ponerle precio a tus piezas, qué vender primero y dónde ofrecerlo.</p>
+            <p class="adh-bono-precio"><s>$19.990</s> <b>$0</b></p>
+          </div>
+        </li>
+        <li class="adh-bono">
+          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 4]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-txt">
+            <h3><small>Bonus 4</small>Terminaciones y flecos perfectos</h3>
+            <p>Los detalles que separan una pieza “de principiante” de una que parece de tienda.</p>
+            <p class="adh-bono-precio"><s>$15.990</s> <b>$0</b></p>
+          </div>
+        </li>
+        <li class="adh-bono">
+          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 5]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-txt">
+            <h3><small>Bonus 5</small>Macramé para bebés y baby shower</h3>
+            <p>Móviles, atrapasueños y decoración tierna para regalar o vender por encargo.</p>
+            <p class="adh-bono-precio"><s>$13.990</s> <b>$0</b></p>
+          </div>
+        </li>
+        <li class="adh-bono">
+          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 6]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-txt">
+            <h3><small>Bonus 6</small>Planificá tu año de macramé</h3>
+            <p>Un planificador por temporada para no dejar ningún proyecto a medias.</p>
+            <p class="adh-bono-precio"><s>$12.990</s> <b>$0</b></p>
+          </div>
+        </li>
+        <li class="adh-bono">
+          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 7]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-txt">
+            <h3><small>Bonus 7</small>Proveedores de cuerda en Argentina</h3>
+            <p>Dónde comprar cuerda y materiales al mejor precio, con contactos por todo el país.</p>
+            <p class="adh-bono-precio"><s>$13.990</s> <b>$0</b></p>
+          </div>
+        </li>
+      </ul>
+      <p class="adh-bonos-total">Valor total <s>$104.930</s> Hoy <b>$0</b></p>
+      <a class="adh-btn" href="#oferta" data-pay>Quiero los 7 bonos de regalo<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </section>
+
   <!-- 5 · OFERTA DE LANZAMIENTO -->
   <section class="adh-band" id="oferta">
     <div class="adh-wrap adh-centro">
       <p class="adh-label">Oferta de lanzamiento</p>
       <div class="adh-oferta">
         <span class="adh-badge" id="adh-badge">50% OFF</span>
+        <ul class="adh-oferta-lista">
+          <li>1000 Patrones de Macramé</li>
+          <li>7 ebooks exclusivos de regalo</li>
+          <li>Acceso inmediato</li>
+          <li>Compra 100% segura</li>
+        </ul>
         <div class="adh-precio">
           <span class="adh-precio-antes" id="adh-antes">Antes $32.000</span>
           <span class="adh-precio-num" id="adh-precio">$15.990</span>
@@ -374,6 +473,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
           <span class="adh-reloj" id="adh-reloj">10:00</span>
         </div>
         <a class="adh-btn" id="adh-pagar" href="#oferta" data-pay><span data-pay-txt>Obtener por $15.990</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <p class="adh-micro">🔒 Pago seguro procesado por Shopify</p>
       </div>
     </div>
   </section>
@@ -389,6 +489,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
         <li><span class="adh-n">II</span><div><strong>Tu primer proyecto guiado</strong><p>El primer proyecto guiado + cómo destrabarte cuando algo no te sale.</p></div></li>
         <li><span class="adh-n">III</span><div><strong>1000 patrones de macramé</strong><p>Ordenados por nivel.</p></div></li>
         <li><span class="adh-n">IV</span><div><strong>El catálogo · 1.000+ patrones</strong><p>Filtrable por categoría y dificultad. Elegís el próximo proyecto en segundos.</p></div></li>
+        <li><span class="adh-n">V</span><div><strong>7 ebooks exclusivos de regalo</strong><p>Calculadora de hilo, colgantes de plantas, macramé para vender, terminaciones, bebés, planificador anual y proveedores en Argentina.</p></div></li>
       </ul>
     </div>
   </section>
@@ -478,7 +579,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   <section class="adh-band">
     <div class="adh-wrap adh-centro">
       <h2>Esa cuerda que tenés guardada ya tiene destino.</h2>
-      <p>Cuatro nudos, una primera pieza y mil patrones para seguir.</p>
+      <p>Cuatro nudos, una primera pieza, mil patrones y 7 regalos para seguir.</p>
       <a class="adh-btn" href="#oferta" data-pay><span data-pay-txt>Obtener por $15.990</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       <p class="adh-micro"><a href="#contacto">¿Dudas? Escribime antes de comprar</a></p>
     </div>
@@ -623,6 +724,17 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   setLink(CONFIG.linkDePago, CONFIG.precioLanzamiento);
   tick();
   timer = setInterval(tick, 1000);
+
+  // Bonos: el cartel "Gratis hoy" salta cuando cada recuadro entra en pantalla.
+  var bonos = root.querySelectorAll(".adh-bono");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); } });
+    }, { threshold: 0.4 });
+    bonos.forEach(function(b){ io.observe(b); });
+  } else {
+    bonos.forEach(function(b){ b.classList.add("is-visible"); });
+  }
 
 })();
 </script>
