@@ -273,7 +273,8 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 .adh-bonos{display:grid;gap:16px;width:100%;margin-top:6px}
 .adh-bono{display:grid;grid-template-columns:116px 1fr;gap:16px;align-items:center;background:var(--adh-degradado);border:1px solid var(--adh-linea);border-radius:var(--adh-radio);padding:12px 16px 12px 12px}
 .adh-bono-img{position:relative}
-.adh-bono-img img,.adh-bono-ph{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--adh-radio);box-shadow:0 10px 18px -12px rgba(94,72,68,.6)}
+.adh-bono-img img{display:block;width:100%;height:auto;border-radius:var(--adh-radio);box-shadow:0 10px 18px -12px rgba(94,72,68,.6)}
+.adh-bono-ph{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--adh-radio);box-shadow:0 10px 18px -12px rgba(94,72,68,.6)}
 .adh-bono-ph{border:1.5px dashed var(--adh-arcilla);background:var(--adh-nude-suave);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--adh-topo-osc);box-shadow:none}
 .adh-bono-gratis{position:absolute;top:-10px;left:-8px;background:var(--adh-rosa-boton);color:#FFFFFF;border-radius:999px;padding:4px 10px;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;box-shadow:0 6px 14px -6px rgba(94,72,68,.8);transform:rotate(-8deg) scale(0);transform-origin:center}
 .adh-bono.is-visible .adh-bono-gratis{animation:adh-pop .5s cubic-bezier(.34,1.56,.64,1) forwards}
@@ -391,7 +392,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
       <p>Con tu compra de 1000 Patrones de Macramé. Acceso inmediato y compra 100% segura.</p>
       <ul class="adh-bonos">
         <li class="adh-bono">
-          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 1]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-img"><img src="{{ 'bono-1.jpg' | asset_url }}" alt="Portada del ebook Calculadora de Hilo" width="400" height="505" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
           <div class="adh-bono-txt">
             <h3><small>Bonus 1</small>Calculadora de Hilo</h3>
             <p>Poné el tamaño de tu pieza y al instante sabés cuántos cordones y cuántos metros de hilo comprar. Nunca más gastar de más ni quedarte corta.</p>
@@ -399,7 +400,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
           </div>
         </li>
         <li class="adh-bono">
-          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 2]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-img"><img src="{{ 'bono-2.jpg' | asset_url }}" alt="Portada del ebook Colgantes de plantas paso a paso" width="400" height="501" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
           <div class="adh-bono-txt">
             <h3><small>Bonus 2</small>Colgantes de plantas paso a paso</h3>
             <p>El proyecto que más se regala y más se vende, explicado de punta a punta.</p>
@@ -407,7 +408,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
           </div>
         </li>
         <li class="adh-bono">
-          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 3]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-img"><img src="{{ 'bono-3.jpg' | asset_url }}" alt="Portada del ebook La Biblia del Macramé" width="400" height="401" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
           <div class="adh-bono-txt">
             <h3><small>Bonus 3</small>Macramé para vender</h3>
             <p>Cómo ponerle precio a tus piezas, qué vender primero y dónde ofrecerlo.</p>
@@ -415,7 +416,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
           </div>
         </li>
         <li class="adh-bono">
-          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 4]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-img"><img src="{{ 'bono-4.jpg' | asset_url }}" alt="Portada del ebook Terminaciones y flecos perfectos" width="400" height="500" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
           <div class="adh-bono-txt">
             <h3><small>Bonus 4</small>Terminaciones y flecos perfectos</h3>
             <p>Los detalles que separan una pieza “de principiante” de una que parece de tienda.</p>
@@ -423,7 +424,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
           </div>
         </li>
         <li class="adh-bono">
-          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 5]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-img"><img src="{{ 'bono-5.jpg' | asset_url }}" alt="Portada del ebook Macramé para bebés y baby shower" width="400" height="401" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
           <div class="adh-bono-txt">
             <h3><small>Bonus 5</small>Macramé para bebés y baby shower</h3>
             <p>Móviles, atrapasueños y decoración tierna para regalar o vender por encargo.</p>
@@ -431,7 +432,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
           </div>
         </li>
         <li class="adh-bono">
-          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 6]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-img"><img src="{{ 'bono-6.jpg' | asset_url }}" alt="Portada del ebook Planificá tu año de macramé" width="400" height="401" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
           <div class="adh-bono-txt">
             <h3><small>Bonus 6</small>Planificá tu año de macramé</h3>
             <p>Un planificador por temporada para no dejar ningún proyecto a medias.</p>
@@ -439,7 +440,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
           </div>
         </li>
         <li class="adh-bono">
-          <div class="adh-bono-img"><div class="adh-bono-ph">[PORTADA 7]</div><span class="adh-bono-gratis">Gratis hoy</span></div>
+          <div class="adh-bono-img"><img src="{{ 'bono-7.jpg' | asset_url }}" alt="Portada del ebook Guía de proveedores en Argentina" width="400" height="401" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
           <div class="adh-bono-txt">
             <h3><small>Bonus 7</small>Proveedores de cuerda en Argentina</h3>
             <p>Dónde comprar cuerda y materiales al mejor precio, con contactos por todo el país.</p>
