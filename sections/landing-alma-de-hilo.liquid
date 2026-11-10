@@ -304,15 +304,29 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 .adh-incluye li.adh-li-nav{border-color:#B9C7B3;background:linear-gradient(145deg,#E7EDE2 0%,#F3F1E8 60%,var(--adh-beige) 100%)}
 .adh-incluye li.adh-li-nav .adh-n{color:var(--adh-pino)}
 /* botones de regalo: cinta dorada vertical + moño + brillo que cruza cada tanto */
-.adh--navidad .adh-btn{position:relative;padding-left:40px;padding-right:16px}
-.adh--navidad .adh-btn::before{content:"";position:absolute;top:0;bottom:0;left:18px;width:7px;background:linear-gradient(90deg,#B8924A,#E2C58C 50%,#B8924A);opacity:.95;pointer-events:none}
-.adh--navidad .adh-btn::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(110deg,transparent 38%,rgba(255,255,255,.3) 50%,transparent 62%);background-size:260% 100%;background-position:160% 0;animation:adhBrilla 5.5s ease-in-out infinite}
+/* TODOS los botones son regalos: cinta dorada vertical + moño + brillo que cruza cada tanto */
+.adh--navidad :is(.adh-btn,.adh-head-cta,.adh-fija-cta){position:relative}
+.adh--navidad .adh-btn{padding-left:40px;padding-right:16px}
+.adh--navidad .adh-head-cta{padding-left:26px}
+.adh--navidad .adh-fija-cta{padding-left:30px;padding-right:14px}
+.adh--navidad .adh-fija{padding-left:18px;gap:8px}
+@media (max-width:440px){.adh-head-cta .adh-emoji{display:none}}
+.adh--navidad :is(.adh-btn,.adh-head-cta,.adh-fija-cta)::before{content:"";position:absolute;top:0;bottom:0;left:18px;width:7px;background:linear-gradient(90deg,#B8924A,#E2C58C 50%,#B8924A);opacity:.95;pointer-events:none}
+.adh--navidad .adh-head-cta::before{left:10px;width:5px}
+.adh--navidad .adh-fija-cta::before{left:13px;width:6px}
+.adh--navidad :is(.adh-btn,.adh-head-cta,.adh-fija-cta)::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(110deg,transparent 38%,rgba(255,255,255,.3) 50%,transparent 62%);background-size:260% 100%;background-position:160% 0;animation:adhBrilla 5.5s ease-in-out infinite}
+.adh--navidad .adh-fija-cta::after{background:linear-gradient(110deg,transparent 38%,rgba(201,164,92,.35) 50%,transparent 62%);background-size:260% 100%;background-position:160% 0}
 @keyframes adhBrilla{0%,55%{background-position:160% 0}85%,100%{background-position:-60% 0}}
-.adh-btn .adh-mono,.adh-btn:hover .adh-mono,.adh-btn:focus-visible .adh-mono{position:absolute;top:-19px;left:1px;width:41px;height:31px;transform:none;pointer-events:none;filter:drop-shadow(0 2px 2px rgba(94,72,68,.35))}
+.adh.adh--navidad svg.adh-mono{position:absolute;top:-19px;left:1px;width:41px;height:31px;transform:none !important;pointer-events:none;filter:drop-shadow(0 2px 2px rgba(94,72,68,.35))}
+.adh.adh--navidad .adh-head-cta svg.adh-mono{top:-13px;left:-2px;width:30px;height:23px}
+.adh.adh--navidad .adh-fija-cta svg.adh-mono{top:-15px;left:-1px;width:34px;height:26px}
 .adh-mono .m-lazo{fill:#D7B577;stroke:#A9843F;stroke-width:1}
 .adh-mono .m-cola{fill:none;stroke:#C9A45C;stroke-width:3.2;stroke-linecap:round}
 .adh-mono .m-nudo{fill:#B8924A}
-@media (prefers-reduced-motion:reduce){.adh--navidad .adh-btn::after{animation:none;display:none}}
+/* barra flotante navideña: verde pino, filete dorado y destellos */
+.adh--navidad .adh-fija{background-color:var(--adh-pino);background-image:radial-gradient(circle,rgba(226,197,140,.55) 0 1px,transparent 1.6px),radial-gradient(circle,rgba(226,197,140,.35) 0 1px,transparent 1.6px);background-size:46px 30px,62px 38px;background-position:6px 5px,30px 18px;box-shadow:inset 0 0 0 1px rgba(201,164,92,.75),0 16px 32px -14px rgba(46,62,52,.8)}
+.adh--navidad .adh-fija:hover{background-color:#334A3B}
+@media (prefers-reduced-motion:reduce){.adh--navidad :is(.adh-btn,.adh-head-cta,.adh-fija-cta)::after{animation:none;display:none}}
 /* franja de arriba */
 .adh-franja{display:flex;background:var(--adh-pino);color:var(--adh-crema);text-align:center;font-size:.82rem;font-weight:500;letter-spacing:.06em;padding:9px 16px;justify-content:center;align-items:center;gap:10px}
 .adh-franja b{font-weight:600;color:#F3E3C3}
@@ -370,7 +384,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   <div class="adh-head">
     <div class="adh-wrap">
       <span class="adh-logo"><img src="https://cdn.shopify.com/s/files/1/1101/8210/5374/files/alma-logo-horizontal-transparente_7484946f-dbdd-44db-8393-625cf834628b.png?v=1793328115" data-local="web/logo-horizontal.png" onerror="if(this.dataset.local&&this.src.indexOf(this.dataset.local)<0)this.src=this.dataset.local" alt="Alma de Hilo" width="130" height="44"></span>
-      <a class="adh-head-cta" href="#oferta" data-pay><span class="adh-sin-nav">Aprovechá el 50% OFF</span><span class="adh-nav">🎄 50% OFF de Navidad</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a class="adh-head-cta" href="#oferta" data-pay><span class="adh-sin-nav">Aprovechá el 50% OFF</span><span class="adh-nav"><span class="adh-emoji">🎄 </span>50% OFF de Navidad</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </div>
 
@@ -680,7 +694,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 
   <!-- Botón flotante tipo píldora: siempre visible, con el precio -->
   <a class="adh-fija" id="adh-fija" href="#oferta" data-pay>
-    <span class="adh-fija-precio"><b id="adh-fija-precio">$15.990</b><small id="adh-fija-txt">Termina en 10:00</small><small class="adh-fija-regalo adh-sin-nav">🎁 + 7 ebooks de regalo</small><small class="adh-fija-regalo adh-nav">🎄 + patrones navideños</small></span>
+    <span class="adh-fija-precio"><b id="adh-fija-precio">$15.990</b><small id="adh-fija-txt">Termina en 10:00</small><small class="adh-fija-regalo">🎁 + 7 ebooks de regalo</small></span>
     <span class="adh-fija-cta">Obtener ahora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
   </a>
 </div>
@@ -713,8 +727,8 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   var navidad = !!CONFIG.navidadHasta && Date.now() < new Date(CONFIG.navidadHasta).getTime();
   if (navidad) {
     root.classList.add("adh--navidad");
-    // Moño dorado sobre la cinta de cada botón principal.
-    root.querySelectorAll(".adh-btn").forEach(function(b){
+    // Moño dorado sobre la cinta de cada botón (todos son "regalos").
+    root.querySelectorAll(".adh-btn, .adh-head-cta, .adh-fija-cta").forEach(function(b){
       b.insertAdjacentHTML("beforeend", '<svg class="adh-mono" viewBox="0 0 32 24" aria-hidden="true"><path class="m-cola" d="M15 12 10.5 21.5M17 12l4.5 9.5"/><path class="m-lazo" d="M16 11C10.5 2.5 3.5 3 4 8.5s7.5 4.5 12 2.5ZM16 11c5.5-8.5 12.5-8 12-2.5s-7.5 4.5-12 2.5Z"/><circle class="m-nudo" cx="16" cy="11" r="2.8"/></svg>');
     });
   }
