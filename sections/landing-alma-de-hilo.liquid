@@ -292,6 +292,86 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 .adh-bonos-total b{font-family:var(--adh-display);font-size:1.5rem;color:var(--adh-rosa-boton)}
 @media (min-width:560px){.adh-bono{grid-template-columns:140px 1fr;gap:22px}}
 @media (prefers-reduced-motion:reduce){.adh-bono-gratis{transform:rotate(-8deg) scale(1)}.adh-bono.is-visible .adh-bono-gratis{animation:none}}
+/* ===== NAVIDAD 2026: todo lo que tiene .adh-nav aparece solo hasta CONFIG.navidadHasta ===== */
+.adh{--adh-pino:#3E5646;--adh-dorado:#C9A45C}
+.adh:not(.adh--navidad) .adh-nav,.adh.adh--navidad .adh-sin-nav{display:none !important}
+/* etiqueta "incluye patrones navideños" */
+/* textos navideños */
+.adh-nav-label{display:flex;align-items:center;gap:12px;font-size:.8rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--adh-pino);width:100%;justify-content:center}
+.adh-nav-label::before,.adh-nav-label::after{content:"";flex:0 1 54px;height:1px;background:var(--adh-dorado)}
+.adh-nav-frase{font-family:var(--adh-display);font-style:italic;font-size:1.4rem;line-height:1.3;color:var(--adh-topo-osc);max-width:30ch;text-wrap:balance}
+.adh h2 em.adh-nav-em{font-style:italic;color:var(--adh-rosa-texto)}
+.adh-nav-tag{display:inline-flex;white-space:nowrap;align-items:center;gap:8px;background:var(--adh-pino);color:var(--adh-crema);border-radius:999px;padding:7px 16px;font-size:.9rem;font-weight:500;letter-spacing:.02em}
+.adh-nav-tag .adh-estrella{width:12px;height:12px;fill:var(--adh-dorado)}
+.adh-oferta-lista li.adh-li-nav{color:var(--adh-pino);font-weight:600}
+.adh-oferta-lista li.adh-li-nav::before{content:"✦";color:var(--adh-dorado)}
+.adh-chips span.adh-chip-nav{border-color:var(--adh-pino);background:var(--adh-pino);color:var(--adh-crema)}
+.adh-incluye li.adh-li-nav{border-color:#B9C7B3;background:linear-gradient(145deg,#E7EDE2 0%,#F3F1E8 60%,var(--adh-beige) 100%)}
+.adh-incluye li.adh-li-nav .adh-n{color:var(--adh-pino)}
+/* botones de regalo: cinta dorada vertical + moño + brillo que cruza cada tanto */
+/* TODOS los botones son regalos: cinta dorada vertical + moño + brillo que cruza cada tanto */
+.adh--navidad :is(.adh-btn,.adh-head-cta,.adh-fija-cta){position:relative}
+.adh--navidad .adh-btn{padding-left:40px;padding-right:16px}
+.adh--navidad .adh-head-cta{padding-left:26px}
+.adh--navidad .adh-fija-cta{padding-left:30px;padding-right:14px}
+.adh--navidad .adh-fija{padding-left:18px;gap:8px}
+@media (max-width:440px){.adh-head-cta .adh-emoji{display:none}}
+.adh--navidad :is(.adh-btn,.adh-head-cta,.adh-fija-cta)::before{content:"";position:absolute;top:0;bottom:0;left:18px;width:7px;background:linear-gradient(90deg,#B8924A,#E2C58C 50%,#B8924A);opacity:.95;pointer-events:none}
+.adh--navidad .adh-head-cta::before{left:10px;width:5px}
+.adh--navidad .adh-fija-cta::before{left:13px;width:6px}
+.adh--navidad :is(.adh-btn,.adh-head-cta,.adh-fija-cta)::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(110deg,transparent 38%,rgba(255,255,255,.3) 50%,transparent 62%);background-size:260% 100%;background-position:160% 0;animation:adhBrilla 5.5s ease-in-out infinite}
+.adh--navidad .adh-fija-cta::after{background:linear-gradient(110deg,transparent 38%,rgba(201,164,92,.35) 50%,transparent 62%);background-size:260% 100%;background-position:160% 0}
+@keyframes adhBrilla{0%,55%{background-position:160% 0}85%,100%{background-position:-60% 0}}
+.adh.adh--navidad svg.adh-mono{position:absolute;top:-19px;left:1px;width:41px;height:31px;transform:none !important;pointer-events:none;filter:drop-shadow(0 2px 2px rgba(94,72,68,.35))}
+.adh.adh--navidad .adh-head-cta svg.adh-mono{top:-13px;left:-2px;width:30px;height:23px}
+.adh.adh--navidad .adh-fija-cta svg.adh-mono{top:-15px;left:-1px;width:34px;height:26px}
+.adh-mono .m-lazo{fill:#D7B577;stroke:#A9843F;stroke-width:1}
+.adh-mono .m-cola{fill:none;stroke:#C9A45C;stroke-width:3.2;stroke-linecap:round}
+.adh-mono .m-nudo{fill:#B8924A}
+/* barra flotante navideña: verde pino, filete dorado y destellos */
+.adh--navidad .adh-fija{background-color:var(--adh-pino);background-image:radial-gradient(circle,rgba(226,197,140,.55) 0 1px,transparent 1.6px),radial-gradient(circle,rgba(226,197,140,.35) 0 1px,transparent 1.6px);background-size:46px 30px,62px 38px;background-position:6px 5px,30px 18px;box-shadow:inset 0 0 0 1px rgba(201,164,92,.75),0 16px 32px -14px rgba(46,62,52,.8)}
+.adh--navidad .adh-fija:hover{background-color:#334A3B}
+@media (prefers-reduced-motion:reduce){.adh--navidad :is(.adh-btn,.adh-head-cta,.adh-fija-cta)::after{animation:none;display:none}}
+/* franja de arriba */
+.adh-franja{display:flex;background:var(--adh-pino);color:var(--adh-crema);text-align:center;font-size:.82rem;font-weight:500;letter-spacing:.06em;padding:9px 16px;justify-content:center;align-items:center;gap:10px}
+.adh-franja b{font-weight:600;color:#F3E3C3}
+.adh-franja span{white-space:nowrap}
+@media (max-width:380px){.adh-franja{font-size:.74rem;letter-spacing:.02em;gap:6px;padding-inline:10px}}
+.adh-franja .adh-estrella{width:11px;height:11px;fill:var(--adh-dorado);flex:0 0 auto}
+/* guirnalda de hilo con nudos y estrellas */
+.adh-guirnalda{width:100%;max-width:640px;margin:-22px auto 0;height:auto;overflow:visible}
+.adh-guirnalda .g-cuerda{fill:none;stroke:var(--adh-arcilla);stroke-width:1.4;stroke-linecap:round}
+.adh-guirnalda .g-rama{fill:none;stroke:#557258;stroke-width:1.2;stroke-linecap:round}
+.adh-guirnalda .g-hilo{stroke:var(--adh-arcilla);stroke-width:.9;opacity:.75}
+.adh-guirnalda .g-bola{stroke-width:1.2}
+.adh-guirnalda .g-bola--oro{fill:var(--adh-dorado);stroke:var(--adh-dorado)}
+.adh-guirnalda .g-bola--rosa{fill:var(--adh-rosa);stroke:var(--adh-rosa)}
+.adh-guirnalda .g-bola--hueca{fill:var(--adh-crema);stroke:var(--adh-rosa)}
+.adh-guirnalda .g-bola{transform-box:fill-box;transform-origin:50% -150%;animation:adhHamaca 4s ease-in-out infinite}
+.adh-guirnalda .g-bola:nth-of-type(2n){animation-delay:1.3s}
+@keyframes adhHamaca{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+/* ramitas, estrellas y puntitos sueltos en la portada */
+.adh-adornos{position:absolute;inset:0;pointer-events:none;z-index:0}
+.adh-ramita{position:absolute;width:12px;height:84px;overflow:visible;fill:none;stroke:#557258;stroke-width:1.2;stroke-linecap:round;opacity:.8}
+.adh-ramita--izq{top:44%;left:-10px}.adh-ramita--der{top:30%;right:-10px}
+.adh-ramita--izq2{top:78%;left:-6px}.adh-ramita--der2{top:86%;right:-6px}
+.adh-estrellita{position:absolute;width:20px;height:20px;fill:none;stroke:var(--adh-dorado);stroke-width:1.1;animation:adhTitila 3.6s ease-in-out infinite}
+.adh-estrellita:nth-of-type(2n){animation-delay:1.4s}
+.adh-puntito{position:absolute;width:7px;height:7px;border-radius:50%;border:1px solid var(--adh-linea)}
+@keyframes adhTitila{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+/* brillo suave cayendo en la portada */
+.adh-hero{position:relative;overflow:hidden}
+.adh-hero .adh-wrap{position:relative;z-index:1}
+.adh-brillo{position:absolute;inset:0;pointer-events:none;z-index:0}
+.adh-brillo i{position:absolute;top:-12px;width:6px;height:6px;border-radius:50%;background:var(--adh-dorado);opacity:0;animation:adhCae 11s linear infinite}
+.adh-brillo i:nth-child(3n){background:var(--adh-rosa);width:5px;height:5px}
+.adh-brillo i:nth-child(4n){background:#E8D3A8;width:4px;height:4px}
+@keyframes adhCae{0%{transform:translate(0,0);opacity:0}10%{opacity:.55}85%{opacity:.4}100%{transform:translate(18px,105vh);opacity:0}}
+@media (prefers-reduced-motion:reduce){
+  .adh-brillo{display:none !important}
+  .adh-guirnalda .g-bola,.adh-estrellita{animation:none}
+}
+
 @media (prefers-reduced-motion:reduce){
   .adh *{transition:none !important}
 }
@@ -303,22 +383,31 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 
   <!-- CABECERA: logo horizontal sin tagline a la izquierda, llamada al 50% a la derecha.
        Las imágenes se cargan desde Shopify; si no cargan (vista previa), usan la copia local de /web. -->
+  <!-- NAVIDAD: franja de arriba (se apaga sola después de CONFIG.navidadHasta) -->
+  <div class="adh-franja adh-nav"><svg class="adh-estrella" viewBox="-6 -6 12 12" aria-hidden="true"><path d="M0-6 1.6-1.6 6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6Z"/></svg><span>Especial Navidad · <b>50% OFF</b> hasta el 25/12</span><svg class="adh-estrella" viewBox="-6 -6 12 12" aria-hidden="true"><path d="M0-6 1.6-1.6 6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6Z"/></svg></div>
+
   <div class="adh-head">
     <div class="adh-wrap">
       <span class="adh-logo"><img src="https://cdn.shopify.com/s/files/1/1101/8210/5374/files/alma-logo-horizontal-transparente_7484946f-dbdd-44db-8393-625cf834628b.png?v=1793328115" data-local="web/logo-horizontal.png" onerror="if(this.dataset.local&&this.src.indexOf(this.dataset.local)<0)this.src=this.dataset.local" alt="Alma de Hilo" width="130" height="44"></span>
-      <a class="adh-head-cta" href="#oferta" data-pay>Aprovechá el 50% OFF <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a class="adh-head-cta" href="#oferta" data-pay><span class="adh-sin-nav">Aprovechá el 50% OFF</span><span class="adh-nav"><span class="adh-emoji">🎄 </span>50% OFF de Navidad</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </div>
 
   <!-- 1 · HERO -->
   <header class="adh-hero">
+    <div class="adh-brillo adh-nav" aria-hidden="true"><i style="left:6%;animation-delay:0s;animation-duration:12s"></i><i style="left:15%;animation-delay:4s;animation-duration:10s"></i><i style="left:24%;animation-delay:7.5s;animation-duration:13s"></i><i style="left:33%;animation-delay:2s;animation-duration:11s"></i><i style="left:44%;animation-delay:9s;animation-duration:12s"></i><i style="left:52%;animation-delay:5s;animation-duration:10s"></i><i style="left:61%;animation-delay:1s;animation-duration:13s"></i><i style="left:70%;animation-delay:6.5s;animation-duration:11s"></i><i style="left:79%;animation-delay:3s;animation-duration:12s"></i><i style="left:88%;animation-delay:8s;animation-duration:10s"></i><i style="left:95%;animation-delay:10s;animation-duration:13s"></i></div>
+    <div class="adh-adornos adh-nav" aria-hidden="true"><svg width="0" height="0" style="position:absolute"><defs><symbol id="adh-rama-h" overflow="visible"><path d="M0-36V36M0-30-7-36M0-30 7-36M0-20-7-26M0-20 7-26M0-10-7-16M0-10 7-16M0 0-7-6M0 0 7-6M0 10-7 4M0 10 7 4M0 20-7 14M0 20 7 14M0 30-6 25M0 30 6 25"/></symbol></defs></svg><svg class="adh-ramita adh-ramita--izq" viewBox="-4 -40 8 80" aria-hidden="true"><g transform="rotate(70)"><use href="#adh-rama-h"/></g></svg><svg class="adh-ramita adh-ramita--der" viewBox="-4 -40 8 80" aria-hidden="true"><g transform="rotate(-110)"><use href="#adh-rama-h"/></g></svg><svg class="adh-ramita adh-ramita--izq2" viewBox="-4 -40 8 80" aria-hidden="true"><g transform="rotate(100)"><use href="#adh-rama-h"/></g></svg><svg class="adh-ramita adh-ramita--der2" viewBox="-4 -40 8 80" aria-hidden="true"><g transform="rotate(-75)"><use href="#adh-rama-h"/></g></svg><svg class="adh-estrellita" style="top:150px;left:7%" viewBox="-8 -8 16 16"><path d="M0-7C.6-2 2-.6 7 0C2 .6.6 2 0 7C-.6 2-2 .6-7 0C-2-.6-.6-2 0-7Z"/></svg><svg class="adh-estrellita" style="top:120px;right:8%" viewBox="-8 -8 16 16"><path d="M0-7C.6-2 2-.6 7 0C2 .6.6 2 0 7C-.6 2-2 .6-7 0C-2-.6-.6-2 0-7Z"/></svg><svg class="adh-estrellita" style="top:58%;right:6%" viewBox="-8 -8 16 16"><path d="M0-7C.6-2 2-.6 7 0C2 .6.6 2 0 7C-.6 2-2 .6-7 0C-2-.6-.6-2 0-7Z"/></svg><svg class="adh-estrellita" style="top:70%;left:9%" viewBox="-8 -8 16 16"><path d="M0-7C.6-2 2-.6 7 0C2 .6.6 2 0 7C-.6 2-2 .6-7 0C-2-.6-.6-2 0-7Z"/></svg><i class="adh-puntito" style="top:230px;left:14%"></i><i class="adh-puntito" style="top:42%;right:10%"></i><i class="adh-puntito" style="top:62%;left:5%"></i><i class="adh-puntito" style="top:80%;right:12%"></i></div>
     <div class="adh-wrap adh-centro">
+      <svg class="adh-guirnalda adh-nav" viewBox="0 0 400 58" aria-hidden="true"><defs><symbol id="adh-rama" viewBox="-8 -2 16 32" overflow="visible"><path d="M0 0V28M0 5-6 0M0 5 6 0M0 10-6 5M0 10 6 5M0 15-6 10M0 15 6 10M0 20-6 15M0 20 6 15M0 25-5 21M0 25 5 21"/></symbol></defs><path class="g-cuerda" d="M0 6Q200 40 400 6"/><use href="#adh-rama" class="g-rama" width="16" height="32" x="-8" y="-2" transform="translate(40 12.1) rotate(-30) scale(.9)"/><use href="#adh-rama" class="g-rama" width="16" height="32" x="-8" y="-2" transform="translate(110 19.6) rotate(28) scale(.9)"/><use href="#adh-rama" class="g-rama" width="16" height="32" x="-8" y="-2" transform="translate(170 22.6) rotate(-24) scale(.9)"/><use href="#adh-rama" class="g-rama" width="16" height="32" x="-8" y="-2" transform="translate(230 22.6) rotate(24) scale(.9)"/><use href="#adh-rama" class="g-rama" width="16" height="32" x="-8" y="-2" transform="translate(290 19.6) rotate(-28) scale(.9)"/><use href="#adh-rama" class="g-rama" width="16" height="32" x="-8" y="-2" transform="translate(360 12.1) rotate(30) scale(.9)"/><line class="g-hilo" x1="15" y1="8.5" x2="15" y2="18.5"/><circle class="g-bola g-bola--oro" cx="15" cy="22.5" r="4"/><line class="g-hilo" x1="75" y1="16.4" x2="75" y2="30.4"/><circle class="g-bola g-bola--rosa" cx="75" cy="34.4" r="4"/><line class="g-hilo" x1="140" y1="21.5" x2="140" y2="30.5"/><circle class="g-bola g-bola--hueca" cx="140" cy="34.5" r="4"/><line class="g-hilo" x1="200" y1="23.0" x2="200" y2="38.0"/><circle class="g-bola g-bola--oro" cx="200" cy="42.0" r="4"/><line class="g-hilo" x1="260" y1="21.5" x2="260" y2="30.5"/><circle class="g-bola g-bola--rosa" cx="260" cy="34.5" r="4"/><line class="g-hilo" x1="325" y1="16.4" x2="325" y2="30.4"/><circle class="g-bola g-bola--hueca" cx="325" cy="34.4" r="4"/><line class="g-hilo" x1="385" y1="8.5" x2="385" y2="18.5"/><circle class="g-bola g-bola--oro" cx="385" cy="22.5" r="4"/></svg>
+      <p class="adh-nav-label adh-nav">Especial Navidad</p>
       <p class="adh-para">Para vos, que empezás mil cosas y no terminás ninguna</p>
       <h1>Aprendé los nudos de macramé y colgá tu primera pieza <em>en 7 días</em></h1>
       <p class="adh-lead">Un método paso a paso para aprender macramé de verdad, más 1.000 patrones ordenados por nivel para que siempre tengas tu próximo proyecto esperándote. Sin cursos caros ni horas perdidas entre tutoriales.</p>
       <div class="adh-foto adh-foto--portada" data-adh-video="videoPortadaUrl" data-video-class="adh-video adh-video--portada">[VIDEO: portada]</div>
+      <p class="adh-nav-frase adh-nav">Este año, los adornos del árbol y los regalos los hacés con tus manos.</p>
       <a class="adh-btn" href="#oferta" data-adh-cta data-pay><span data-pay-txt>Obtener por $15.990</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       <p class="adh-regalo-tag">🎁 + 7 ebooks exclusivos de regalo</p>
+      <p class="adh-nav-tag adh-nav"><svg class="adh-estrella" viewBox="-6 -6 12 12" aria-hidden="true"><path d="M0-6 1.6-1.6 6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6Z"/></svg>Incluye 30 patrones navideños</p>
       <div class="adh-micro adh-micro--ovillo"><span>Para toda la vida</span><svg class="adh-ovillo" viewBox="0 0 16 16" aria-hidden="true"><circle class="o-bola" cx="7.5" cy="7.5" r="6.2"/><path class="o-hebra" d="M2.6 6c3-1.5 6.8-1.4 9.8.3M2.2 8.9c3.3-1.3 7.1-1.1 10.3.6M4.8 2.3c-.9 3.3-.6 7.3 1.3 10.3M9.2 1.6c-1.3 3.5-1.1 8.3.8 11.6"/><path class="o-cola" d="M12.6 11.4c1 .8 1.7 1.9 2.1 3.2"/></svg><span>Descarga inmediata</span></div>
     </div>
   </header>
@@ -450,18 +539,19 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
         </li>
       </ul>
       <p class="adh-bonos-total">Valor total <s>$104.930</s> Hoy <b>$0</b></p>
-      <a class="adh-btn" href="#oferta" data-pay>Quiero los 7 bonos de regalo<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a class="adh-btn" href="#oferta" data-pay><span class="adh-sin-nav">Quiero los 7 bonos de regalo</span><span class="adh-nav">Quiero mis 7 regalos de Navidad</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </section>
 
   <!-- 5 · OFERTA DE LANZAMIENTO -->
   <section class="adh-band" id="oferta">
     <div class="adh-wrap adh-centro">
-      <p class="adh-label">Oferta de lanzamiento</p>
+      <p class="adh-label"><span class="adh-sin-nav">Oferta de lanzamiento</span><span class="adh-nav">Oferta especial de Navidad</span></p>
       <div class="adh-oferta">
         <span class="adh-badge" id="adh-badge">50% OFF</span>
         <ul class="adh-oferta-lista">
           <li>1000 Patrones de Macramé</li>
+          <li class="adh-li-nav adh-nav">30 patrones navideños: árbol, mesa y regalos</li>
           <li>7 ebooks exclusivos de regalo</li>
           <li>Acceso inmediato</li>
           <li>Compra 100% segura</li>
@@ -485,12 +575,13 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
     <div class="adh-wrap">
       <p class="adh-label">Qué hay adentro</p>
       <h2>Qué incluye el ebook</h2>
-      <div class="adh-chips"><span>1000 patrones</span><span>Para principiantes</span></div>
+      <div class="adh-chips"><span>1000 patrones</span><span>Para principiantes</span><span class="adh-chip-nav adh-nav">✦ Patrones navideños</span></div>
       <ul class="adh-incluye">
         <li><span class="adh-n">I</span><div><strong>Los 4 nudos base</strong><p>Explicados paso a paso.</p></div></li>
         <li><span class="adh-n">II</span><div><strong>Tu primer proyecto guiado</strong><p>El primer proyecto guiado + cómo destrabarte cuando algo no te sale.</p></div></li>
         <li><span class="adh-n">III</span><div><strong>1000 patrones de macramé</strong><p>Ordenados por nivel.</p></div></li>
         <li><span class="adh-n">IV</span><div><strong>El catálogo · 1.000+ patrones</strong><p>Filtrable por categoría y dificultad. Elegís el próximo proyecto en segundos.</p></div></li>
+        <li class="adh-li-nav adh-nav"><span class="adh-n">✦</span><div><strong>Especial Navidad · 30 patrones navideños</strong><p>Adornos para el árbol, centros de mesa y regalos hechos a mano. Vienen en la misma carpeta de descarga.</p></div></li>
         <li><span class="adh-n">V</span><div><strong>7 ebooks exclusivos de regalo</strong><p>Calculadora de hilo, colgantes de plantas, la Biblia del Macramé, terminaciones, bebés, planificador anual y proveedores en Argentina.</p></div></li>
       </ul>
     </div>
@@ -580,7 +671,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   <!-- CIERRE -->
   <section class="adh-band">
     <div class="adh-wrap adh-centro">
-      <h2>Esa cuerda que tenés guardada ya tiene destino.</h2>
+      <h2>Esa cuerda que tenés guardada ya tiene destino<span class="adh-sin-nav">.</span><span class="adh-nav">: <em class="adh-nav-em">tu Navidad</em>.</span></h2>
       <p>Cuatro nudos, una primera pieza, mil patrones y 7 regalos para seguir.</p>
       <a class="adh-btn" href="#oferta" data-pay><span data-pay-txt>Obtener por $15.990</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       <p class="adh-micro"><a href="#contacto">¿Dudas? Escribime antes de comprar</a></p>
@@ -634,11 +725,20 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
     videoPortadaUrl: "https://cdn.shopify.com/videos/c/vp/f418797fc8b84999a5465283fdb53689/f418797fc8b84999a5465283fdb53689.HD-720p-4.5Mbps-99397307.mp4",
     videoPorDentroUrl: "https://cdn.shopify.com/videos/c/vp/5c2d959d764e4c87bfad6a5667013baa/5c2d959d764e4c87bfad6a5667013baa.HD-720p-4.5Mbps-99397308.mp4", // pordentro.mp4: compartir como "cualquier persona con el enlace"
     email: "almadehilo12@gmail.com",
-    instagram: "@alma.dehiloo"
+    instagram: "@alma.dehiloo",
+    navidadHasta: "2026-12-26T00:00:00-03:00" // fin de la decoración navideña (medianoche del 25, hora Argentina). Vacío = sin Navidad.
   };
   /* ==================== */
 
   var root = document.querySelector(".adh");
+  var navidad = !!CONFIG.navidadHasta && Date.now() < new Date(CONFIG.navidadHasta).getTime();
+  if (navidad) {
+    root.classList.add("adh--navidad");
+    // Moño dorado sobre la cinta de cada botón (todos son "regalos").
+    root.querySelectorAll(".adh-btn, .adh-head-cta, .adh-fija-cta").forEach(function(b){
+      b.insertAdjacentHTML("beforeend", '<svg class="adh-mono" viewBox="0 0 32 24" aria-hidden="true"><path class="m-cola" d="M15 12 10.5 21.5M17 12l4.5 9.5"/><path class="m-lazo" d="M16 11C10.5 2.5 3.5 3 4 8.5s7.5 4.5 12 2.5ZM16 11c5.5-8.5 12.5-8 12-2.5s-7.5 4.5-12 2.5Z"/><circle class="m-nudo" cx="16" cy="11" r="2.8"/></svg>');
+    });
+  }
   root.querySelectorAll("[data-adh]").forEach(function(el){
     var v = CONFIG[el.getAttribute("data-adh")];
     if (v) el.textContent = v;
@@ -693,6 +793,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   };
   el.antes.textContent = "Antes " + CONFIG.precioNormal;
   el.badge.textContent = CONFIG.descuento;
+  if (navidad) el.relojTxt.textContent = "La oferta de Navidad termina en";
 
   // Todos los botones (cabecera, hero, secciones, oferta, cierre y píldora) llevan directo al pago
   // y muestran el precio vigente: "Obtener por $15.990" mientras corre el contador.
@@ -709,7 +810,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
       clearInterval(timer);
       el.badge.hidden = true; el.antes.hidden = true;
       el.precio.textContent = CONFIG.precioNormal;
-      el.relojTxt.textContent = "El precio de lanzamiento terminó.";
+      el.relojTxt.textContent = navidad ? "La oferta de Navidad terminó." : "El precio de lanzamiento terminó.";
       el.reloj.hidden = true;
       el.fijaPrecio.textContent = CONFIG.precioNormal;
       el.fijaTxt.textContent = "Precio regular";
