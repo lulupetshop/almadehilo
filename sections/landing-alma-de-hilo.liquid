@@ -303,6 +303,16 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 .adh-chips span.adh-chip-nav{border-color:var(--adh-pino);background:var(--adh-pino);color:var(--adh-crema)}
 .adh-incluye li.adh-li-nav{border-color:#B9C7B3;background:linear-gradient(145deg,#E7EDE2 0%,#F3F1E8 60%,var(--adh-beige) 100%)}
 .adh-incluye li.adh-li-nav .adh-n{color:var(--adh-pino)}
+/* botones de regalo: cinta dorada vertical + moño + brillo que cruza cada tanto */
+.adh--navidad .adh-btn{position:relative;padding-left:40px;padding-right:16px}
+.adh--navidad .adh-btn::before{content:"";position:absolute;top:0;bottom:0;left:18px;width:7px;background:linear-gradient(90deg,#B8924A,#E2C58C 50%,#B8924A);opacity:.95;pointer-events:none}
+.adh--navidad .adh-btn::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(110deg,transparent 38%,rgba(255,255,255,.3) 50%,transparent 62%);background-size:260% 100%;background-position:160% 0;animation:adhBrilla 5.5s ease-in-out infinite}
+@keyframes adhBrilla{0%,55%{background-position:160% 0}85%,100%{background-position:-60% 0}}
+.adh-btn .adh-mono,.adh-btn:hover .adh-mono,.adh-btn:focus-visible .adh-mono{position:absolute;top:-19px;left:1px;width:41px;height:31px;transform:none;pointer-events:none;filter:drop-shadow(0 2px 2px rgba(94,72,68,.35))}
+.adh-mono .m-lazo{fill:#D7B577;stroke:#A9843F;stroke-width:1}
+.adh-mono .m-cola{fill:none;stroke:#C9A45C;stroke-width:3.2;stroke-linecap:round}
+.adh-mono .m-nudo{fill:#B8924A}
+@media (prefers-reduced-motion:reduce){.adh--navidad .adh-btn::after{animation:none;display:none}}
 /* franja de arriba */
 .adh-franja{display:flex;background:var(--adh-pino);color:var(--adh-crema);text-align:center;font-size:.82rem;font-weight:500;letter-spacing:.06em;padding:9px 16px;justify-content:center;align-items:center;gap:10px}
 .adh-franja b{font-weight:600;color:#F3E3C3}
@@ -360,7 +370,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   <div class="adh-head">
     <div class="adh-wrap">
       <span class="adh-logo"><img src="https://cdn.shopify.com/s/files/1/1101/8210/5374/files/alma-logo-horizontal-transparente_7484946f-dbdd-44db-8393-625cf834628b.png?v=1793328115" data-local="web/logo-horizontal.png" onerror="if(this.dataset.local&&this.src.indexOf(this.dataset.local)<0)this.src=this.dataset.local" alt="Alma de Hilo" width="130" height="44"></span>
-      <a class="adh-head-cta" href="#oferta" data-pay>Aprovechá el 50% OFF <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a class="adh-head-cta" href="#oferta" data-pay><span class="adh-sin-nav">Aprovechá el 50% OFF</span><span class="adh-nav">🎄 50% OFF de Navidad</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </div>
 
@@ -508,7 +518,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
         </li>
       </ul>
       <p class="adh-bonos-total">Valor total <s>$104.930</s> Hoy <b>$0</b></p>
-      <a class="adh-btn" href="#oferta" data-pay>Quiero los 7 bonos de regalo<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a class="adh-btn" href="#oferta" data-pay><span class="adh-sin-nav">Quiero los 7 bonos de regalo</span><span class="adh-nav">Quiero mis 7 regalos de Navidad</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </section>
 
@@ -670,7 +680,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 
   <!-- Botón flotante tipo píldora: siempre visible, con el precio -->
   <a class="adh-fija" id="adh-fija" href="#oferta" data-pay>
-    <span class="adh-fija-precio"><b id="adh-fija-precio">$15.990</b><small id="adh-fija-txt">Termina en 10:00</small><small class="adh-fija-regalo">🎁 + 7 ebooks de regalo</small></span>
+    <span class="adh-fija-precio"><b id="adh-fija-precio">$15.990</b><small id="adh-fija-txt">Termina en 10:00</small><small class="adh-fija-regalo adh-sin-nav">🎁 + 7 ebooks de regalo</small><small class="adh-fija-regalo adh-nav">🎄 + patrones navideños</small></span>
     <span class="adh-fija-cta">Obtener ahora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
   </a>
 </div>
@@ -700,7 +710,14 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   /* ==================== */
 
   var root = document.querySelector(".adh");
-  if (CONFIG.navidadHasta && Date.now() < new Date(CONFIG.navidadHasta).getTime()) root.classList.add("adh--navidad");
+  var navidad = !!CONFIG.navidadHasta && Date.now() < new Date(CONFIG.navidadHasta).getTime();
+  if (navidad) {
+    root.classList.add("adh--navidad");
+    // Moño dorado sobre la cinta de cada botón principal.
+    root.querySelectorAll(".adh-btn").forEach(function(b){
+      b.insertAdjacentHTML("beforeend", '<svg class="adh-mono" viewBox="0 0 32 24" aria-hidden="true"><path class="m-cola" d="M15 12 10.5 21.5M17 12l4.5 9.5"/><path class="m-lazo" d="M16 11C10.5 2.5 3.5 3 4 8.5s7.5 4.5 12 2.5ZM16 11c5.5-8.5 12.5-8 12-2.5s-7.5 4.5-12 2.5Z"/><circle class="m-nudo" cx="16" cy="11" r="2.8"/></svg>');
+    });
+  }
   root.querySelectorAll("[data-adh]").forEach(function(el){
     var v = CONFIG[el.getAttribute("data-adh")];
     if (v) el.textContent = v;
@@ -755,6 +772,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   };
   el.antes.textContent = "Antes " + CONFIG.precioNormal;
   el.badge.textContent = CONFIG.descuento;
+  if (navidad) el.relojTxt.textContent = "La oferta de Navidad termina en";
 
   // Todos los botones (cabecera, hero, secciones, oferta, cierre y píldora) llevan directo al pago
   // y muestran el precio vigente: "Obtener por $15.990" mientras corre el contador.
@@ -771,7 +789,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
       clearInterval(timer);
       el.badge.hidden = true; el.antes.hidden = true;
       el.precio.textContent = CONFIG.precioNormal;
-      el.relojTxt.textContent = "El precio de lanzamiento terminó.";
+      el.relojTxt.textContent = navidad ? "La oferta de Navidad terminó." : "El precio de lanzamiento terminó.";
       el.reloj.hidden = true;
       el.fijaPrecio.textContent = CONFIG.precioNormal;
       el.fijaTxt.textContent = "Precio regular";
