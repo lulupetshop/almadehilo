@@ -172,5 +172,30 @@
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
+
+    <script>
+      // Cuando la persona cambia de pestaña, el título invita a volver.
+      (function () {
+        var tituloOriginal = document.title;
+        var mensajes = ['🧶 ¡Volvé! Te esperamos', '🎁 ¡No te vayas! Volvé', '🧵 Tu patrón te espera 💛'];
+        var intervalo = null;
+        var i = 0;
+
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) {
+            tituloOriginal = document.title;
+            i = 0;
+            document.title = mensajes[0];
+            intervalo = setInterval(function () {
+              i = (i + 1) % mensajes.length;
+              document.title = mensajes[i];
+            }, 2000);
+          } else {
+            clearInterval(intervalo);
+            document.title = tituloOriginal;
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
