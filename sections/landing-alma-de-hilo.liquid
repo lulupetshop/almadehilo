@@ -187,22 +187,27 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 .adh-pop-x{flex:0 0 auto;width:42px;height:42px;border:1px solid var(--adh-linea);border-radius:50%;background:var(--adh-papel);color:var(--adh-topo-osc);font-size:1.5rem;line-height:1;cursor:pointer}
 .adh-pop-pedido{display:flex;justify-content:space-between;gap:12px;align-items:center;background:var(--adh-papel);border:1px solid var(--adh-linea);border-radius:var(--adh-radio);padding:12px 14px;font-size:.9rem;line-height:1.35;color:var(--adh-topo-osc)}
 .adh-pop-pedido b{font-family:var(--adh-display);font-size:1.35rem;white-space:nowrap;font-variant-numeric:lining-nums}
-.adh-up{display:grid;grid-template-columns:76px 1fr;gap:14px;align-items:start;background:var(--adh-degradado);border:1.5px dashed var(--adh-rosa-boton);border-radius:var(--adh-radio);padding:14px;transition:border-color .2s ease-out}
+.adh-up{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;background:var(--adh-degradado);border:1.5px dashed var(--adh-rosa-boton);border-radius:var(--adh-radio);padding:12px;transition:border-color .2s ease-out}
 .adh-up.is-on{border-style:solid}
-.adh-up img{width:76px;height:auto;border-radius:var(--adh-radio);box-shadow:0 8px 14px -10px rgba(94,72,68,.7)}
+.adh-up img{width:64px;height:auto;border-radius:var(--adh-radio);box-shadow:0 8px 14px -10px rgba(94,72,68,.7)}
 .adh-up-txt{display:flex;flex-direction:column;gap:6px;min-width:0}
 .adh-up-tag{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--adh-rosa-boton)}
-.adh .adh-up h3{font-size:1.3rem}
-.adh-up-txt p{font-size:.86rem;line-height:1.45}
+.adh .adh-up h3{font-size:1.2rem}
+.adh-up-txt p{font-size:.84rem;line-height:1.4}
 .adh-up-precio{display:flex;align-items:baseline;gap:8px}
-.adh-up-precio b{font-family:var(--adh-display);font-size:1.55rem;color:var(--adh-rosa-boton);font-variant-numeric:lining-nums}
+.adh-up-precio b{font-family:var(--adh-display);font-size:1.4rem;color:var(--adh-rosa-boton);font-variant-numeric:lining-nums}
 .adh-up-precio s{font-size:.9rem}
-.adh-up-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 18px;border:1.5px solid var(--adh-rosa-boton);border-radius:var(--adh-radio);background:#FFFFFF;color:var(--adh-rosa-boton);font:600 .95rem/1 var(--adh-body);cursor:pointer;transition:background-color .2s ease-out,color .2s ease-out}
+.adh-up-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:9px 16px;border:1.5px solid var(--adh-rosa-boton);border-radius:var(--adh-radio);background:#FFFFFF;color:var(--adh-rosa-boton);font:600 .95rem/1 var(--adh-body);cursor:pointer;transition:background-color .2s ease-out,color .2s ease-out}
 .adh-up-btn[aria-pressed="true"]{background:var(--adh-rosa-boton);color:#FFFFFF}
 .adh-pop-total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--adh-linea);padding-top:12px;color:var(--adh-topo-osc)}
 .adh-pop-total b{font-family:var(--adh-display);font-size:2rem;font-variant-numeric:lining-nums}
 .adh-pop .adh-btn{max-width:none;align-self:stretch}
 .adh-pop-micro{font-size:.8rem;text-align:center}
+.adh-pop-sub{font-size:.88rem}
+.adh-pop-ups{display:flex;flex-direction:column;gap:10px}
+.adh-up:not(:has(img)){grid-template-columns:1fr}
+.adh-pop-pie{position:sticky;bottom:0;margin:0 -20px calc(-20px - env(safe-area-inset-bottom,0px));padding:0 20px calc(16px + env(safe-area-inset-bottom,0px));background:var(--adh-crema);display:flex;flex-direction:column;gap:12px;box-shadow:0 -14px 18px -14px rgba(94,72,68,.35)}
+.adh-pop-pie .adh-pop-total{border-top:1px solid var(--adh-linea)}
 .adh-precio{display:flex;flex-direction:column;gap:2px;align-items:center}
 .adh-precio-antes{text-decoration:line-through;font-size:1.25rem;font-weight:500}
 .adh-precio-num{font-family:var(--adh-display);font-weight:700;font-size:4.3rem;-webkit-text-stroke:1.5px currentColor;line-height:1.05;color:var(--adh-topo-osc);font-variant-numeric:tabular-nums lining-nums}
@@ -302,7 +307,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   .adh-oferta{padding:40px 36px}
 }
 
-/* 7 bonos de regalo: recuadro con la portada pegada a la izquierda y "Gratis hoy" que sale de la imagen */
+/* 6 bonos de regalo: recuadro con la portada pegada a la izquierda y "Gratis hoy" que sale de la imagen */
 .adh-regalo-tag{display:inline-flex;align-items:center;gap:8px;background:var(--adh-nude-suave);border:1px solid var(--adh-linea);border-radius:999px;padding:6px 16px;font-size:.92rem;font-weight:500;color:var(--adh-topo-osc)}
 .adh-bonos{display:grid;gap:16px;width:100%;margin-top:6px}
 .adh-bono{display:grid;grid-template-columns:116px 1fr;gap:16px;align-items:center;background:var(--adh-degradado);border:1px solid var(--adh-linea);border-radius:var(--adh-radio);padding:12px 16px 12px 12px}
@@ -439,7 +444,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
       <div class="adh-foto adh-foto--portada" data-adh-video="videoPortadaUrl" data-video-class="adh-video adh-video--portada">[VIDEO: portada]</div>
       <p class="adh-nav-frase adh-nav">Este año, los adornos del árbol y los regalos los hacés con tus manos.</p>
       <a class="adh-btn" href="#oferta" data-adh-cta data-pay><span data-pay-txt>Obtener por $19.990</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <p class="adh-regalo-tag">🎁 + 7 ebooks exclusivos de regalo</p>
+      <p class="adh-regalo-tag">🎁 + 6 ebooks exclusivos de regalo</p>
       <p class="adh-nav-tag adh-nav"><svg class="adh-estrella" viewBox="-6 -6 12 12" aria-hidden="true"><path d="M0-6 1.6-1.6 6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6Z"/></svg>Incluye 30 patrones navideños</p>
       <div class="adh-micro adh-micro--ovillo"><span>Para toda la vida</span><svg class="adh-ovillo" viewBox="0 0 16 16" aria-hidden="true"><circle class="o-bola" cx="7.5" cy="7.5" r="6.2"/><path class="o-hebra" d="M2.6 6c3-1.5 6.8-1.4 9.8.3M2.2 8.9c3.3-1.3 7.1-1.1 10.3.6M4.8 2.3c-.9 3.3-.6 7.3 1.3 10.3M9.2 1.6c-1.3 3.5-1.1 8.3.8 11.6"/><path class="o-cola" d="M12.6 11.4c1 .8 1.7 1.9 2.1 3.2"/></svg><span>Descarga inmediata</span></div>
     </div>
@@ -507,25 +512,17 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
     </div>
   </section>
 
-  <!-- 7 BONOS DE REGALO -->
+  <!-- 6 BONOS DE REGALO -->
   <section class="adh-band adh-band--suave" id="regalos">
     <div class="adh-wrap adh-centro">
       <p class="adh-label">Comprando hoy</p>
-      <h2>Te llevás 7 ebooks exclusivos de regalo</h2>
+      <h2>Te llevás 6 ebooks exclusivos de regalo</h2>
       <p>Con tu compra de 1000 Patrones de Macramé. Acceso inmediato y compra 100% segura.</p>
       <ul class="adh-bonos">
         <li class="adh-bono">
-          <div class="adh-bono-img"><img src="{{ 'bono-1.jpg' | asset_url }}" alt="Portada del ebook Calculadora de Hilo" width="400" height="505" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
-          <div class="adh-bono-txt">
-            <h3><small>Bonus 1</small>Calculadora de Hilo</h3>
-            <p>Poné el tamaño de tu pieza y al instante sabés cuántos cordones y cuántos metros de hilo comprar. Nunca más gastar de más ni quedarte corta.</p>
-            <p class="adh-bono-precio"><s>$12.990</s> <b>$0</b></p>
-          </div>
-        </li>
-        <li class="adh-bono">
           <div class="adh-bono-img"><img src="{{ 'bono-2.jpg' | asset_url }}" alt="Portada del ebook Colgantes de plantas paso a paso" width="400" height="501" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
           <div class="adh-bono-txt">
-            <h3><small>Bonus 2</small>Colgantes de plantas paso a paso</h3>
+            <h3><small>Bonus 1</small>Colgantes de plantas paso a paso</h3>
             <p>El proyecto que más se regala y más se vende, explicado de punta a punta.</p>
             <p class="adh-bono-precio"><s>$14.990</s> <b>$0</b></p>
           </div>
@@ -533,7 +530,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
         <li class="adh-bono">
           <div class="adh-bono-img"><img src="{{ 'bono-3.jpg' | asset_url }}" alt="Portada del ebook La Biblia del Macramé" width="400" height="401" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
           <div class="adh-bono-txt">
-            <h3><small>Bonus 3</small>La Biblia del Macramé</h3>
+            <h3><small>Bonus 2</small>La Biblia del Macramé</h3>
             <p>La guía definitiva para crear piezas únicas paso a paso: técnicas, patrones y proyectos para todos los niveles.</p>
             <p class="adh-bono-precio"><s>$19.990</s> <b>$0</b></p>
           </div>
@@ -541,7 +538,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
         <li class="adh-bono">
           <div class="adh-bono-img"><img src="{{ 'bono-4.jpg' | asset_url }}" alt="Portada del ebook Terminaciones y flecos perfectos" width="400" height="500" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
           <div class="adh-bono-txt">
-            <h3><small>Bonus 4</small>Terminaciones y flecos perfectos</h3>
+            <h3><small>Bonus 3</small>Terminaciones y flecos perfectos</h3>
             <p>Los detalles que separan una pieza “de principiante” de una que parece de tienda.</p>
             <p class="adh-bono-precio"><s>$15.990</s> <b>$0</b></p>
           </div>
@@ -549,7 +546,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
         <li class="adh-bono">
           <div class="adh-bono-img"><img src="{{ 'bono-5.jpg' | asset_url }}" alt="Portada del ebook Macramé para bebés y baby shower" width="400" height="401" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
           <div class="adh-bono-txt">
-            <h3><small>Bonus 5</small>Macramé para bebés y baby shower</h3>
+            <h3><small>Bonus 4</small>Macramé para bebés y baby shower</h3>
             <p>Móviles, atrapasueños y decoración tierna para regalar o vender por encargo.</p>
             <p class="adh-bono-precio"><s>$13.990</s> <b>$0</b></p>
           </div>
@@ -557,7 +554,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
         <li class="adh-bono">
           <div class="adh-bono-img"><img src="{{ 'bono-6.jpg' | asset_url }}" alt="Portada del ebook Planificá tu año de macramé" width="400" height="401" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
           <div class="adh-bono-txt">
-            <h3><small>Bonus 6</small>Planificá tu año de macramé</h3>
+            <h3><small>Bonus 5</small>Planificá tu año de macramé</h3>
             <p>Un planificador por temporada para no dejar ningún proyecto a medias.</p>
             <p class="adh-bono-precio"><s>$12.990</s> <b>$0</b></p>
           </div>
@@ -565,14 +562,14 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
         <li class="adh-bono">
           <div class="adh-bono-img"><img src="{{ 'bono-7.jpg' | asset_url }}" alt="Portada del ebook Guía de proveedores en Argentina" width="400" height="401" loading="lazy"><span class="adh-bono-gratis">Gratis hoy</span></div>
           <div class="adh-bono-txt">
-            <h3><small>Bonus 7</small>Proveedores de cuerda en Argentina</h3>
+            <h3><small>Bonus 6</small>Proveedores de cuerda en Argentina</h3>
             <p>Dónde comprar cuerda y materiales al mejor precio, con contactos por todo el país.</p>
             <p class="adh-bono-precio"><s>$13.990</s> <b>$0</b></p>
           </div>
         </li>
       </ul>
-      <p class="adh-bonos-total">Valor total <s>$104.930</s> Hoy <b>$0</b></p>
-      <a class="adh-btn" href="#oferta" data-pay><span class="adh-sin-nav">Quiero los 7 bonos de regalo</span><span class="adh-nav">Quiero mis 7 regalos de Navidad</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <p class="adh-bonos-total">Valor total <s>$91.940</s> Hoy <b>$0</b></p>
+      <a class="adh-btn" href="#oferta" data-pay><span class="adh-sin-nav">Quiero los 6 bonos de regalo</span><span class="adh-nav">Quiero mis 6 regalos de Navidad</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </section>
 
@@ -585,7 +582,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
         <ul class="adh-oferta-lista">
           <li>1000 Patrones de Macramé</li>
           <li class="adh-li-nav adh-nav">30 patrones navideños: árbol, mesa y regalos</li>
-          <li>7 ebooks exclusivos de regalo</li>
+          <li>6 ebooks exclusivos de regalo</li>
           <li>Acceso inmediato</li>
           <li>Compra 100% segura</li>
         </ul>
@@ -615,7 +612,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
         <li><span class="adh-n">III</span><div><strong>1000 patrones de macramé</strong><p>Ordenados por nivel.</p></div></li>
         <li><span class="adh-n">IV</span><div><strong>El catálogo · 1.000+ patrones</strong><p>Filtrable por categoría y dificultad. Elegís el próximo proyecto en segundos.</p></div></li>
         <li class="adh-li-nav adh-nav"><span class="adh-n">✦</span><div><strong>Especial Navidad · 30 patrones navideños</strong><p>Adornos para el árbol, centros de mesa y regalos hechos a mano. Vienen en la misma carpeta de descarga.</p></div></li>
-        <li><span class="adh-n">V</span><div><strong>7 ebooks exclusivos de regalo</strong><p>Calculadora de hilo, colgantes de plantas, la Biblia del Macramé, terminaciones, bebés, planificador anual y proveedores en Argentina.</p></div></li>
+        <li><span class="adh-n">V</span><div><strong>6 ebooks exclusivos de regalo</strong><p>Colgantes de plantas, la Biblia del Macramé, terminaciones, bebés, planificador anual y proveedores en Argentina.</p></div></li>
       </ul>
     </div>
   </section>
@@ -705,7 +702,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   <section class="adh-band">
     <div class="adh-wrap adh-centro">
       <h2>Esa cuerda que tenés guardada ya tiene destino<span class="adh-sin-nav">.</span><span class="adh-nav">: <em class="adh-nav-em">tu Navidad</em>.</span></h2>
-      <p>Cuatro nudos, una primera pieza, mil patrones y 7 regalos para seguir.</p>
+      <p>Cuatro nudos, una primera pieza, mil patrones y 6 regalos para seguir.</p>
       <a class="adh-btn" href="#oferta" data-pay><span data-pay-txt>Obtener por $19.990</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       <p class="adh-micro"><a href="#contacto">¿Dudas? Escribime antes de comprar</a></p>
     </div>
@@ -735,47 +732,49 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   <!-- POP-UP DE UPSELLS: se abre al tocar cualquier botón de compra, antes de ir al pago.
        Para sumar o sacar ofertas, editá la lista de abajo (handles de productos separados por coma).
        Solo se muestran los productos activos; si no queda ninguno, los botones van directo al pago.
-       Imagen: la del producto en Shopify o, si no tiene, assets/upsell-HANDLE.jpg -->
-  {%- assign adh_upsell_handles = 'guia-de-hilos-para-macrame' | split: ',' -%}
+       Imagen: la del producto en Shopify (si no tiene, la tarjeta va sin imagen). -->
+  {%- assign adh_upsell_handles = 'guia-de-hilos-para-macrame,vende-lo-que-tejes-guia-para-vender-tu-macrame,bonus-1-calculadora-de-hilo,videos-de-los-bonus-clases-paso-a-paso' | split: ',' -%}
   <dialog class="adh-pop" id="adh-pop" aria-labelledby="adh-pop-titulo">
     <div class="adh-pop-in" tabindex="-1" autofocus>
       <div class="adh-pop-head">
         <div>
           <p class="adh-label">Antes de pagar</p>
           <h2 id="adh-pop-titulo">Sumá algo más a tu pedido</h2>
+          <p class="adh-pop-sub">Solo se ofrecen acá, antes de pagar.</p>
         </div>
         <button type="button" class="adh-pop-x" data-pop-cerrar aria-label="Cerrar">×</button>
       </div>
-      <div class="adh-pop-pedido"><span>1000 Patrones de Macramé + 7 ebooks de regalo</span><b id="adh-pop-base">$19.990</b></div>
+      <div class="adh-pop-pedido"><span>1000 Patrones de Macramé + 6 ebooks de regalo</span><b id="adh-pop-base">$19.990</b></div>
       {%- for adh_h in adh_upsell_handles -%}
         {%- assign adh_handle = adh_h | strip -%}
         {%- assign adh_up = all_products[adh_handle] -%}
         {%- if adh_up and adh_up.available -%}
       <div class="adh-up" data-up data-variante="{{ adh_up.selected_or_first_available_variant.id }}" data-precio="{{ adh_up.price | divided_by: 100 }}">
         {%- if adh_up.featured_image -%}
-        <img src="{{ adh_up.featured_image | image_url: width: 220 }}" alt="{{ adh_up.title | escape }}" width="76" loading="lazy">
-        {%- else -%}
-        <img src="{{ 'upsell-' | append: adh_handle | append: '.jpg' | asset_url }}" alt="{{ adh_up.title | escape }}" width="76" loading="lazy">
+        <img src="{{ adh_up.featured_image | image_url: width: 200 }}" alt="{{ adh_up.title | escape }}" width="64" loading="lazy">
         {%- endif -%}
         <div class="adh-up-txt">
-          <span class="adh-up-tag">Solo con esta compra</span>
+          <span class="adh-up-tag">Precio especial</span>
           <h3>{{ adh_up.title }}</h3>
-          <p>{{ adh_up.description | strip_html | split: '. ' | first | strip }}.</p>
+          {%- assign adh_d = adh_up.description | strip_html | split: '. ' | first | strip | truncatewords: 18, '…' -%}
+          <p>{{ adh_d }}{% unless adh_d contains '…' %}.{% endunless %}</p>
           <div class="adh-up-precio"><b>{{ adh_up.price | money_without_trailing_zeros }}</b>{% if adh_up.compare_at_price > adh_up.price %}<s>{{ adh_up.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</div>
           <button type="button" class="adh-up-btn" aria-pressed="false" data-up-btn>+ Agregar</button>
         </div>
       </div>
         {%- endif -%}
       {%- endfor -%}
+      <div class="adh-pop-pie">
       <div class="adh-pop-total"><span>Total</span><b id="adh-pop-total">$19.990</b></div>
       <a class="adh-btn" id="adh-pop-pagar" href="#oferta"><span id="adh-pop-pagar-txt">Ir a pagar $19.990</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       <p class="adh-pop-micro">🔒 Pago seguro procesado por Shopify</p>
+      </div>
     </div>
   </dialog>
 
   <!-- Botón flotante tipo píldora: siempre visible, con el precio -->
   <a class="adh-fija" id="adh-fija" href="#oferta" data-pay>
-    <span class="adh-fija-precio"><b id="adh-fija-precio">$19.990</b><small id="adh-fija-txt">Termina en 10:00</small><small class="adh-fija-regalo">🎁 + 7 ebooks de regalo</small></span>
+    <span class="adh-fija-precio"><b id="adh-fija-precio">$19.990</b><small id="adh-fija-txt">Termina en 10:00</small><small class="adh-fija-regalo">🎁 + 6 ebooks de regalo</small></span>
     <span class="adh-fija-cta">Obtener ahora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
   </a>
 </div>
@@ -790,7 +789,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
     descuento: "50% OFF",
     minutosOferta: 10,               // minutos por visitante; no se reinicia al recargar
     // Links de compra de Shopify: llevan directo al pago. El producto tiene que estar ACTIVO (hoy está en borrador hasta cargar el PDF).
-    linkDePago: "https://almadehilo.myshopify.com/cart/60886313500958:1",   // $19.990 · paquete (bundle): ebook + 7 bonus; el checkout muestra los 8
+    linkDePago: "https://almadehilo.myshopify.com/cart/60886313500958:1",   // $19.990 · paquete (bundle): ebook + 6 bonus; el checkout muestra los 7
     linkDePagoNormal: "https://almadehilo.myshopify.com/cart/60886313500958:1",                    // $39.990 (cuando termina el tiempo)
     medioPago: "",                   // ej. "Mercado Pago"
     formato: "",                     // ej. "PDF"
