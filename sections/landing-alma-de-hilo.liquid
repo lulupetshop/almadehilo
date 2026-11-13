@@ -180,34 +180,48 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 @media (prefers-reduced-motion:reduce){.adh-pop[open]{animation:none}}
 .adh-pop p{margin:0}
 .adh-pop-in:focus{outline:none}
-.adh-pop-in{display:flex;flex-direction:column;gap:16px;padding:22px 20px calc(20px + env(safe-area-inset-bottom,0px))}
-.adh-pop-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.adh-pop-head > div{display:flex;flex-direction:column;gap:8px;min-width:0}
-.adh .adh-pop h2{font-size:1.85rem}
-.adh-pop-x{flex:0 0 auto;width:42px;height:42px;border:1px solid var(--adh-linea);border-radius:50%;background:var(--adh-papel);color:var(--adh-topo-osc);font-size:1.5rem;line-height:1;cursor:pointer}
-.adh-pop-pedido{display:flex;justify-content:space-between;gap:12px;align-items:center;background:var(--adh-papel);border:1px solid var(--adh-linea);border-radius:var(--adh-radio);padding:12px 14px;font-size:.9rem;line-height:1.35;color:var(--adh-topo-osc)}
-.adh-pop-pedido b{font-family:var(--adh-display);font-size:1.35rem;white-space:nowrap;font-variant-numeric:lining-nums}
-.adh-up{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;background:var(--adh-degradado);border:1.5px dashed var(--adh-rosa-boton);border-radius:var(--adh-radio);padding:12px;transition:border-color .2s ease-out}
+.adh-pop-in{display:flex;flex-direction:column;gap:10px;padding:14px 16px calc(12px + env(safe-area-inset-bottom,0px))}
+.adh-pop-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.adh-pop-head > div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.adh .adh-pop h2{font-size:1.45rem;line-height:1.15}
+.adh-pop-sub{font-size:.8rem}
+.adh-pop-x{flex:0 0 auto;width:38px;height:38px;border:1px solid var(--adh-linea);border-radius:50%;background:var(--adh-papel);color:var(--adh-topo-osc);font-size:1.35rem;line-height:1;cursor:pointer}
+.adh-pop-pedido{display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--adh-papel);border:1px solid var(--adh-linea);border-radius:var(--adh-radio);padding:7px 12px;font-size:.8rem;line-height:1.3;color:var(--adh-topo-osc)}
+.adh-pop-pedido b{font-family:var(--adh-display);font-size:1.15rem;white-space:nowrap;font-variant-numeric:lining-nums}
+/* cada oferta en una fila compacta: imagen | nombre y descripción | precio y botón */
+.adh-up{display:grid;grid-template-columns:46px minmax(0,1fr) auto;gap:10px;align-items:center;background:var(--adh-degradado);border:1.5px dashed var(--adh-rosa-boton);border-radius:var(--adh-radio);padding:7px 10px 7px 7px;transition:border-color .2s ease-out}
+.adh-up:not(:has(img)){grid-template-columns:minmax(0,1fr) auto;padding-left:12px}
 .adh-up.is-on{border-style:solid}
-.adh-up img{width:64px;height:auto;border-radius:var(--adh-radio);box-shadow:0 8px 14px -10px rgba(94,72,68,.7)}
-.adh-up-txt{display:flex;flex-direction:column;gap:6px;min-width:0}
-.adh-up-tag{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--adh-rosa-boton)}
-.adh .adh-up h3{font-size:1.2rem}
-.adh-up-txt p{font-size:.84rem;line-height:1.4}
-.adh-up-precio{display:flex;align-items:baseline;gap:8px}
-.adh-up-precio b{font-family:var(--adh-display);font-size:1.4rem;color:var(--adh-rosa-boton);font-variant-numeric:lining-nums}
-.adh-up-precio s{font-size:.9rem}
-.adh-up-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:9px 16px;border:1.5px solid var(--adh-rosa-boton);border-radius:var(--adh-radio);background:#FFFFFF;color:var(--adh-rosa-boton);font:600 .95rem/1 var(--adh-body);cursor:pointer;transition:background-color .2s ease-out,color .2s ease-out}
+.adh-up img{width:46px;height:58px;object-fit:cover;border-radius:4px;box-shadow:0 6px 10px -8px rgba(94,72,68,.7)}
+.adh-up-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.adh .adh-up h3{font-size:1.02rem;line-height:1.15}
+.adh-up-txt p{font-size:.74rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.adh-up-der{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.adh-up-precio{display:flex;align-items:baseline;gap:5px;white-space:nowrap}
+.adh-up-precio b{font-family:var(--adh-display);font-size:1.15rem;line-height:1;color:var(--adh-rosa-boton);font-variant-numeric:lining-nums}
+.adh-up-precio s{font-size:.7rem}
+.adh-up-btn{display:inline-flex;align-items:center;justify-content:center;min-width:90px;min-height:34px;padding:6px 10px;border:1.5px solid var(--adh-rosa-boton);border-radius:var(--adh-radio);background:#FFFFFF;color:var(--adh-rosa-boton);font:600 .8rem/1 var(--adh-body);white-space:nowrap;cursor:pointer;transition:background-color .2s ease-out,color .2s ease-out}
 .adh-up-btn[aria-pressed="true"]{background:var(--adh-rosa-boton);color:#FFFFFF}
-.adh-pop-total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--adh-linea);padding-top:12px;color:var(--adh-topo-osc)}
-.adh-pop-total b{font-family:var(--adh-display);font-size:2rem;font-variant-numeric:lining-nums}
-.adh-pop .adh-btn{max-width:none;align-self:stretch}
-.adh-pop-micro{font-size:.8rem;text-align:center}
-.adh-pop-sub{font-size:.88rem}
-.adh-pop-ups{display:flex;flex-direction:column;gap:10px}
-.adh-up:not(:has(img)){grid-template-columns:1fr}
-.adh-pop-pie{position:sticky;bottom:0;margin:0 -20px calc(-20px - env(safe-area-inset-bottom,0px));padding:0 20px calc(16px + env(safe-area-inset-bottom,0px));background:var(--adh-crema);display:flex;flex-direction:column;gap:12px;box-shadow:0 -14px 18px -14px rgba(94,72,68,.35)}
+.adh-pop-total{display:flex;justify-content:space-between;align-items:baseline;padding-top:8px;color:var(--adh-topo-osc);font-size:.95rem}
+.adh-pop-total b{font-family:var(--adh-display);font-size:1.6rem;line-height:1;font-variant-numeric:lining-nums}
+.adh-pop .adh-btn{max-width:none;align-self:stretch;min-height:50px;padding-block:12px}
+.adh-pop-micro{font-size:.72rem;text-align:center}
+.adh-pop-pie{position:sticky;bottom:0;margin:0 -16px calc(-12px - env(safe-area-inset-bottom,0px));padding:0 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--adh-crema);display:flex;flex-direction:column;gap:8px;box-shadow:0 -12px 16px -14px rgba(94,72,68,.35)}
 .adh-pop-pie .adh-pop-total{border-top:1px solid var(--adh-linea)}
+/* pantallas bajas (celulares chicos): todo más compacto para que entren al menos 3 ofertas */
+@media (max-height:640px){
+  .adh-pop-in{gap:7px;padding-top:10px}
+  .adh-pop-sub,.adh-pop-micro{display:none}
+  .adh .adh-pop h2{font-size:1.25rem}
+  .adh-pop-x{width:34px;height:34px}
+  .adh-pop-pedido{padding:5px 10px}
+  .adh-up{padding-block:5px}
+  .adh-up img{width:38px;height:48px}
+  .adh-up-txt p{-webkit-line-clamp:1}
+  .adh-up-btn{min-height:30px;min-width:84px}
+  .adh-pop-pie{gap:6px}
+  .adh-pop .adh-btn{min-height:44px;padding-block:9px}
+}
 .adh-precio{display:flex;flex-direction:column;gap:2px;align-items:center}
 .adh-precio-antes{text-decoration:line-through;font-size:1.25rem;font-weight:500}
 .adh-precio-num{font-family:var(--adh-display);font-weight:700;font-size:4.3rem;-webkit-text-stroke:1.5px currentColor;line-height:1.05;color:var(--adh-topo-osc);font-variant-numeric:tabular-nums lining-nums}
@@ -738,9 +752,8 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
     <div class="adh-pop-in" tabindex="-1" autofocus>
       <div class="adh-pop-head">
         <div>
-          <p class="adh-label">Antes de pagar</p>
           <h2 id="adh-pop-titulo">Sumá algo más a tu pedido</h2>
-          <p class="adh-pop-sub">Solo se ofrecen acá, antes de pagar.</p>
+          <p class="adh-pop-sub">Precios especiales, solo antes de pagar.</p>
         </div>
         <button type="button" class="adh-pop-x" data-pop-cerrar aria-label="Cerrar">×</button>
       </div>
@@ -751,15 +764,16 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
         {%- if adh_up and adh_up.available -%}
       <div class="adh-up" data-up data-variante="{{ adh_up.selected_or_first_available_variant.id }}" data-precio="{{ adh_up.price | divided_by: 100 }}">
         {%- if adh_up.featured_image -%}
-        <img src="{{ adh_up.featured_image | image_url: width: 200 }}" alt="{{ adh_up.title | escape }}" width="64" loading="lazy">
+        <img src="{{ adh_up.featured_image | image_url: width: 120 }}" alt="{{ adh_up.title | escape }}" width="46" height="58" loading="lazy">
         {%- endif -%}
         <div class="adh-up-txt">
-          <span class="adh-up-tag">Precio especial</span>
-          <h3>{{ adh_up.title }}</h3>
-          {%- assign adh_d = adh_up.description | strip_html | split: '. ' | first | strip | truncatewords: 18, '…' -%}
+          <h3>{{ adh_up.title | split: ' · ' | first }}</h3>
+          {%- assign adh_d = adh_up.description | strip_html | split: '. ' | first | strip | truncatewords: 16, '…' -%}
           <p>{{ adh_d }}{% unless adh_d contains '…' %}.{% endunless %}</p>
-          <div class="adh-up-precio"><b>{{ adh_up.price | money_without_trailing_zeros }}</b>{% if adh_up.compare_at_price > adh_up.price %}<s>{{ adh_up.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</div>
-          <button type="button" class="adh-up-btn" aria-pressed="false" data-up-btn>+ Agregar</button>
+        </div>
+        <div class="adh-up-der">
+          <div class="adh-up-precio">{% if adh_up.compare_at_price > adh_up.price %}<s>{{ adh_up.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}<b>{{ adh_up.price | money_without_trailing_zeros }}</b></div>
+          <button type="button" class="adh-up-btn" aria-pressed="false" aria-label="Agregar {{ adh_up.title | escape }}" data-up-btn>+ Agregar</button>
         </div>
       </div>
         {%- endif -%}
@@ -808,7 +822,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   if (navidad) {
     root.classList.add("adh--navidad");
     // Moño dorado sobre la cinta de cada botón (todos son "regalos").
-    root.querySelectorAll(".adh-btn, .adh-head-cta, .adh-fija-cta").forEach(function(b){
+    root.querySelectorAll(".adh-btn:not(#adh-pop-pagar), .adh-head-cta, .adh-fija-cta").forEach(function(b){
       b.insertAdjacentHTML("beforeend", '<svg class="adh-mono" viewBox="0 0 32 24" aria-hidden="true"><path class="m-cola" d="M15 12 10.5 21.5M17 12l4.5 9.5"/><path class="m-lazo" d="M16 11C10.5 2.5 3.5 3 4 8.5s7.5 4.5 12 2.5ZM16 11c5.5-8.5 12.5-8 12-2.5s-7.5 4.5-12 2.5Z"/><circle class="m-nudo" cx="16" cy="11" r="2.8"/></svg>');
     });
   }
