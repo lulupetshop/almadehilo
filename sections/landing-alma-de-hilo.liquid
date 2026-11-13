@@ -170,6 +170,21 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 .adh-oferta-lista{width:100%;text-align:left}
 .adh-oferta-lista li{display:flex;gap:10px;padding-block:9px;border-top:1px solid var(--adh-linea);font-size:.97rem}
 .adh-oferta-lista li::before{content:"✓";color:var(--adh-rosa-boton);font-weight:600}
+/* upsell: casilla para sumar la Guía de Hilos (arranca destildada; solo aparece si el producto está activo) */
+.adh-upsell{width:100%;display:grid;grid-template-columns:auto 64px 1fr;gap:12px;align-items:center;text-align:left;background:var(--adh-papel);border:1.5px dashed var(--adh-rosa-boton);border-radius:var(--adh-radio);padding:14px;cursor:pointer;transition:background-color .2s ease-out,border-color .2s ease-out}
+.adh-upsell:has(input:checked){border-style:solid;background:var(--adh-nude-suave)}
+.adh-upsell input{appearance:none;-webkit-appearance:none;width:24px;height:24px;margin:0;border:2px solid var(--adh-rosa-boton);border-radius:var(--adh-radio);background:#FFFFFF;display:grid;place-content:center;cursor:pointer;flex:0 0 auto}
+.adh-upsell input::after{content:"";width:12px;height:7px;border-left:2.5px solid #FFFFFF;border-bottom:2.5px solid #FFFFFF;transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.adh-upsell input:checked{background:var(--adh-rosa-boton)}
+.adh-upsell input:checked::after{opacity:1}
+.adh-upsell input:focus-visible{outline:2px solid var(--adh-topo-osc);outline-offset:3px}
+.adh-upsell img{width:64px;height:auto;border-radius:var(--adh-radio);box-shadow:0 8px 14px -10px rgba(94,72,68,.7)}
+.adh-upsell-txt{display:flex;flex-direction:column;gap:4px;min-width:0;color:var(--adh-topo-osc)}
+.adh-upsell-txt strong{font-size:.98rem;line-height:1.3}
+.adh-upsell-txt strong s{font-weight:400;color:var(--adh-topo)}
+.adh-upsell-txt strong b{color:var(--adh-rosa-boton)}
+.adh-upsell-txt span{font-size:.85rem;line-height:1.45;color:var(--adh-topo)}
+.adh-upsell-total{font-size:.9rem;color:var(--adh-topo-osc)}
 .adh-precio{display:flex;flex-direction:column;gap:2px;align-items:center}
 .adh-precio-antes{text-decoration:line-through;font-size:1.25rem;font-weight:500}
 .adh-precio-num{font-family:var(--adh-display);font-weight:700;font-size:4.3rem;-webkit-text-stroke:1.5px currentColor;line-height:1.05;color:var(--adh-topo-osc);font-variant-numeric:tabular-nums lining-nums}
@@ -564,6 +579,19 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
           <span id="adh-reloj-txt">El precio de lanzamiento termina en</span>
           <span class="adh-reloj" id="adh-reloj">10:00</span>
         </div>
+        {%- comment -%} Upsell: Guía de Hilos. Solo se muestra si el producto está activo y a la venta en la tienda online. {%- endcomment -%}
+        {%- assign adh_guia = all_products['guia-de-hilos-para-macrame'] -%}
+        {%- if adh_guia and adh_guia.available -%}
+        <label class="adh-upsell" for="adh-upsell">
+          <input type="checkbox" id="adh-upsell" data-variante="{{ adh_guia.selected_or_first_available_variant.id }}" data-precio="{{ adh_guia.price | divided_by: 100 }}">
+          <img src="{{ 'upsell-guia-hilos.jpg' | asset_url }}" alt="Portada de la Guía de Hilos" width="300" height="533" loading="lazy">
+          <span class="adh-upsell-txt">
+            <strong>Sí, sumá la Guía de Hilos por <b>{{ adh_guia.price | money_without_trailing_zeros }}</b>{% if adh_guia.compare_at_price > adh_guia.price %} <s>{{ adh_guia.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</strong>
+            <span>Elegí el hilo justo para cada proyecto: test de 5 pasos, 8 fichas de hilo y tabla de 15 proyectos. Solo con esta compra.</span>
+          </span>
+        </label>
+        <p class="adh-upsell-total" id="adh-upsell-total" hidden></p>
+        {%- endif -%}
         <a class="adh-btn" id="adh-pagar" href="#oferta" data-pay><span data-pay-txt>Obtener por $19.990</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         <p class="adh-micro">🔒 Pago seguro procesado por Shopify</p>
       </div>
@@ -799,10 +827,36 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   // y muestran el precio vigente: "Obtener por $19.990" mientras corre el contador.
   var payBtns = root.querySelectorAll("[data-pay]");
   var payTxt = root.querySelectorAll("[data-pay-txt]");
+  // Upsell (Guía de Hilos): si la casilla está tildada, todos los links suman la guía al carrito
+  // ("/cart/ebook:1,guia:1") y los botones muestran el total. La casilla solo existe si el producto está activo.
+  var upsell = document.getElementById("adh-upsell");
+  var upsellTotal = document.getElementById("adh-upsell-total");
+  var actual = { url: "", precio: "" };
+  function aNumero(p){ return parseInt(String(p).replace(/\D/g, ""), 10) || 0; }
+  function aPesos(n){ return "$" + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
   function setLink(url, precio){
-    payBtns.forEach(function(a){ if (url) a.href = url; });
-    payTxt.forEach(function(s){ s.textContent = "Obtener por " + precio; });
+    actual.url = url; actual.precio = precio;
+    var conGuia = !!(upsell && upsell.checked);
+    var link = url, texto = precio;
+    if (conGuia) {
+      if (url) link = url + "," + upsell.getAttribute("data-variante") + ":1";
+      texto = aPesos(aNumero(precio) + aNumero(upsell.getAttribute("data-precio")));
+    }
+    payBtns.forEach(function(a){ if (link) a.href = link; });
+    payTxt.forEach(function(s){ s.textContent = "Obtener por " + texto; });
+    if (upsellTotal) {
+      upsellTotal.hidden = !conGuia;
+      upsellTotal.textContent = conGuia ? "Total con la Guía de Hilos: " + texto : "";
+    }
   }
+  // Precio que muestra la píldora flotante: suma la guía si está tildada.
+  function conGuia(precio){
+    return (upsell && upsell.checked) ? aPesos(aNumero(precio) + aNumero(upsell.getAttribute("data-precio"))) : precio;
+  }
+  if (upsell) upsell.addEventListener("change", function(){
+    setLink(actual.url, actual.precio);
+    el.fijaPrecio.textContent = conGuia(actual.precio);
+  });
   var timer;
   function tick(){
     var ms = fin - Date.now();
@@ -812,7 +866,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
       el.precio.textContent = CONFIG.precioNormal;
       el.relojTxt.textContent = navidad ? "La oferta de Navidad terminó." : "El precio de lanzamiento terminó.";
       el.reloj.hidden = true;
-      el.fijaPrecio.textContent = CONFIG.precioNormal;
+      el.fijaPrecio.textContent = conGuia(CONFIG.precioNormal);
       el.fijaTxt.textContent = "Precio regular";
       setLink(CONFIG.linkDePagoNormal, CONFIG.precioNormal);
       return;
@@ -821,7 +875,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
     var t = (m < 10 ? "0" : "") + m + ":" + (r < 10 ? "0" : "") + r;
     el.precio.textContent = CONFIG.precioLanzamiento;
     el.reloj.textContent = t;
-    el.fijaPrecio.textContent = CONFIG.precioLanzamiento;
+    el.fijaPrecio.textContent = conGuia(CONFIG.precioLanzamiento);
     el.fijaTxt.textContent = "Termina en " + t;
   }
   setLink(CONFIG.linkDePago, CONFIG.precioLanzamiento);
