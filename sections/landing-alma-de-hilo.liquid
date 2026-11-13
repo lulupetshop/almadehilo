@@ -170,21 +170,39 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 .adh-oferta-lista{width:100%;text-align:left}
 .adh-oferta-lista li{display:flex;gap:10px;padding-block:9px;border-top:1px solid var(--adh-linea);font-size:.97rem}
 .adh-oferta-lista li::before{content:"✓";color:var(--adh-rosa-boton);font-weight:600}
-/* upsell: casilla para sumar la Guía de Hilos (arranca destildada; solo aparece si el producto está activo) */
-.adh-upsell{width:100%;display:grid;grid-template-columns:auto 64px 1fr;gap:12px;align-items:center;text-align:left;background:var(--adh-papel);border:1.5px dashed var(--adh-rosa-boton);border-radius:var(--adh-radio);padding:14px;cursor:pointer;transition:background-color .2s ease-out,border-color .2s ease-out}
-.adh-upsell:has(input:checked){border-style:solid;background:var(--adh-nude-suave)}
-.adh-upsell input{appearance:none;-webkit-appearance:none;width:24px;height:24px;margin:0;border:2px solid var(--adh-rosa-boton);border-radius:var(--adh-radio);background:#FFFFFF;display:grid;place-content:center;cursor:pointer;flex:0 0 auto}
-.adh-upsell input::after{content:"";width:12px;height:7px;border-left:2.5px solid #FFFFFF;border-bottom:2.5px solid #FFFFFF;transform:rotate(-45deg) translate(1px,-1px);opacity:0}
-.adh-upsell input:checked{background:var(--adh-rosa-boton)}
-.adh-upsell input:checked::after{opacity:1}
-.adh-upsell input:focus-visible{outline:2px solid var(--adh-topo-osc);outline-offset:3px}
-.adh-upsell img{width:64px;height:auto;border-radius:var(--adh-radio);box-shadow:0 8px 14px -10px rgba(94,72,68,.7)}
-.adh-upsell-txt{display:flex;flex-direction:column;gap:4px;min-width:0;color:var(--adh-topo-osc)}
-.adh-upsell-txt strong{font-size:.98rem;line-height:1.3}
-.adh-upsell-txt strong s{font-weight:400;color:var(--adh-topo)}
-.adh-upsell-txt strong b{color:var(--adh-rosa-boton)}
-.adh-upsell-txt span{font-size:.85rem;line-height:1.45;color:var(--adh-topo)}
-.adh-upsell-total{font-size:.9rem;color:var(--adh-topo-osc)}
+/* pop-up de upsells: se abre al tocar cualquier botón de compra, antes de ir al pago.
+   En el celular sube desde abajo; en computadora queda centrado. */
+.adh-pop{width:100%;max-width:480px;max-height:92vh;max-height:92dvh;margin:auto auto 0;padding:0;border:0;border-radius:14px 14px 0 0;background:var(--adh-crema);color:var(--adh-topo);font-family:var(--adh-body);font-size:17px;line-height:1.55;box-shadow:0 -20px 50px -20px rgba(94,72,68,.6);overflow:auto;overscroll-behavior:contain}
+.adh-pop::backdrop{background:rgba(70,52,48,.55)}
+.adh-pop[open]{animation:adh-sube .3s ease-out}
+@keyframes adh-sube{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@media (min-width:640px){.adh-pop{margin:auto;border-radius:var(--adh-radio)}}
+@media (prefers-reduced-motion:reduce){.adh-pop[open]{animation:none}}
+.adh-pop p{margin:0}
+.adh-pop-in:focus{outline:none}
+.adh-pop-in{display:flex;flex-direction:column;gap:16px;padding:22px 20px calc(20px + env(safe-area-inset-bottom,0px))}
+.adh-pop-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.adh-pop-head > div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.adh .adh-pop h2{font-size:1.85rem}
+.adh-pop-x{flex:0 0 auto;width:42px;height:42px;border:1px solid var(--adh-linea);border-radius:50%;background:var(--adh-papel);color:var(--adh-topo-osc);font-size:1.5rem;line-height:1;cursor:pointer}
+.adh-pop-pedido{display:flex;justify-content:space-between;gap:12px;align-items:center;background:var(--adh-papel);border:1px solid var(--adh-linea);border-radius:var(--adh-radio);padding:12px 14px;font-size:.9rem;line-height:1.35;color:var(--adh-topo-osc)}
+.adh-pop-pedido b{font-family:var(--adh-display);font-size:1.35rem;white-space:nowrap;font-variant-numeric:lining-nums}
+.adh-up{display:grid;grid-template-columns:76px 1fr;gap:14px;align-items:start;background:var(--adh-degradado);border:1.5px dashed var(--adh-rosa-boton);border-radius:var(--adh-radio);padding:14px;transition:border-color .2s ease-out}
+.adh-up.is-on{border-style:solid}
+.adh-up img{width:76px;height:auto;border-radius:var(--adh-radio);box-shadow:0 8px 14px -10px rgba(94,72,68,.7)}
+.adh-up-txt{display:flex;flex-direction:column;gap:6px;min-width:0}
+.adh-up-tag{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--adh-rosa-boton)}
+.adh .adh-up h3{font-size:1.3rem}
+.adh-up-txt p{font-size:.86rem;line-height:1.45}
+.adh-up-precio{display:flex;align-items:baseline;gap:8px}
+.adh-up-precio b{font-family:var(--adh-display);font-size:1.55rem;color:var(--adh-rosa-boton);font-variant-numeric:lining-nums}
+.adh-up-precio s{font-size:.9rem}
+.adh-up-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 18px;border:1.5px solid var(--adh-rosa-boton);border-radius:var(--adh-radio);background:#FFFFFF;color:var(--adh-rosa-boton);font:600 .95rem/1 var(--adh-body);cursor:pointer;transition:background-color .2s ease-out,color .2s ease-out}
+.adh-up-btn[aria-pressed="true"]{background:var(--adh-rosa-boton);color:#FFFFFF}
+.adh-pop-total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--adh-linea);padding-top:12px;color:var(--adh-topo-osc)}
+.adh-pop-total b{font-family:var(--adh-display);font-size:2rem;font-variant-numeric:lining-nums}
+.adh-pop .adh-btn{max-width:none;align-self:stretch}
+.adh-pop-micro{font-size:.8rem;text-align:center}
 .adh-precio{display:flex;flex-direction:column;gap:2px;align-items:center}
 .adh-precio-antes{text-decoration:line-through;font-size:1.25rem;font-weight:500}
 .adh-precio-num{font-family:var(--adh-display);font-weight:700;font-size:4.3rem;-webkit-text-stroke:1.5px currentColor;line-height:1.05;color:var(--adh-topo-osc);font-variant-numeric:tabular-nums lining-nums}
@@ -579,19 +597,6 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
           <span id="adh-reloj-txt">El precio de lanzamiento termina en</span>
           <span class="adh-reloj" id="adh-reloj">10:00</span>
         </div>
-        {%- comment -%} Upsell: Guía de Hilos. Solo se muestra si el producto está activo y a la venta en la tienda online. {%- endcomment -%}
-        {%- assign adh_guia = all_products['guia-de-hilos-para-macrame'] -%}
-        {%- if adh_guia and adh_guia.available -%}
-        <label class="adh-upsell" for="adh-upsell">
-          <input type="checkbox" id="adh-upsell" data-variante="{{ adh_guia.selected_or_first_available_variant.id }}" data-precio="{{ adh_guia.price | divided_by: 100 }}">
-          <img src="{{ 'upsell-guia-hilos.jpg' | asset_url }}" alt="Portada de la Guía de Hilos" width="300" height="533" loading="lazy">
-          <span class="adh-upsell-txt">
-            <strong>Sí, sumá la Guía de Hilos por <b>{{ adh_guia.price | money_without_trailing_zeros }}</b>{% if adh_guia.compare_at_price > adh_guia.price %} <s>{{ adh_guia.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</strong>
-            <span>Elegí el hilo justo para cada proyecto: test de 5 pasos, 8 fichas de hilo y tabla de 15 proyectos. Solo con esta compra.</span>
-          </span>
-        </label>
-        <p class="adh-upsell-total" id="adh-upsell-total" hidden></p>
-        {%- endif -%}
         <a class="adh-btn" id="adh-pagar" href="#oferta" data-pay><span data-pay-txt>Obtener por $19.990</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         <p class="adh-micro">🔒 Pago seguro procesado por Shopify</p>
       </div>
@@ -727,6 +732,47 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
     </div>
   </footer>
 
+  <!-- POP-UP DE UPSELLS: se abre al tocar cualquier botón de compra, antes de ir al pago.
+       Para sumar o sacar ofertas, editá la lista de abajo (handles de productos separados por coma).
+       Solo se muestran los productos activos; si no queda ninguno, los botones van directo al pago.
+       Imagen: la del producto en Shopify o, si no tiene, assets/upsell-HANDLE.jpg -->
+  {%- assign adh_upsell_handles = 'guia-de-hilos-para-macrame' | split: ',' -%}
+  <dialog class="adh-pop" id="adh-pop" aria-labelledby="adh-pop-titulo">
+    <div class="adh-pop-in" tabindex="-1" autofocus>
+      <div class="adh-pop-head">
+        <div>
+          <p class="adh-label">Antes de pagar</p>
+          <h2 id="adh-pop-titulo">Sumá algo más a tu pedido</h2>
+        </div>
+        <button type="button" class="adh-pop-x" data-pop-cerrar aria-label="Cerrar">×</button>
+      </div>
+      <div class="adh-pop-pedido"><span>1000 Patrones de Macramé + 7 ebooks de regalo</span><b id="adh-pop-base">$19.990</b></div>
+      {%- for adh_h in adh_upsell_handles -%}
+        {%- assign adh_handle = adh_h | strip -%}
+        {%- assign adh_up = all_products[adh_handle] -%}
+        {%- if adh_up and adh_up.available -%}
+      <div class="adh-up" data-up data-variante="{{ adh_up.selected_or_first_available_variant.id }}" data-precio="{{ adh_up.price | divided_by: 100 }}">
+        {%- if adh_up.featured_image -%}
+        <img src="{{ adh_up.featured_image | image_url: width: 220 }}" alt="{{ adh_up.title | escape }}" width="76" loading="lazy">
+        {%- else -%}
+        <img src="{{ 'upsell-' | append: adh_handle | append: '.jpg' | asset_url }}" alt="{{ adh_up.title | escape }}" width="76" loading="lazy">
+        {%- endif -%}
+        <div class="adh-up-txt">
+          <span class="adh-up-tag">Solo con esta compra</span>
+          <h3>{{ adh_up.title }}</h3>
+          <p>{{ adh_up.description | strip_html | split: '. ' | first | strip }}.</p>
+          <div class="adh-up-precio"><b>{{ adh_up.price | money_without_trailing_zeros }}</b>{% if adh_up.compare_at_price > adh_up.price %}<s>{{ adh_up.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</div>
+          <button type="button" class="adh-up-btn" aria-pressed="false" data-up-btn>+ Agregar</button>
+        </div>
+      </div>
+        {%- endif -%}
+      {%- endfor -%}
+      <div class="adh-pop-total"><span>Total</span><b id="adh-pop-total">$19.990</b></div>
+      <a class="adh-btn" id="adh-pop-pagar" href="#oferta"><span id="adh-pop-pagar-txt">Ir a pagar $19.990</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <p class="adh-pop-micro">🔒 Pago seguro procesado por Shopify</p>
+    </div>
+  </dialog>
+
   <!-- Botón flotante tipo píldora: siempre visible, con el precio -->
   <a class="adh-fija" id="adh-fija" href="#oferta" data-pay>
     <span class="adh-fija-precio"><b id="adh-fija-precio">$19.990</b><small id="adh-fija-txt">Termina en 10:00</small><small class="adh-fija-regalo">🎁 + 7 ebooks de regalo</small></span>
@@ -827,36 +873,60 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   // y muestran el precio vigente: "Obtener por $19.990" mientras corre el contador.
   var payBtns = root.querySelectorAll("[data-pay]");
   var payTxt = root.querySelectorAll("[data-pay-txt]");
-  // Upsell (Guía de Hilos): si la casilla está tildada, todos los links suman la guía al carrito
-  // ("/cart/ebook:1,guia:1") y los botones muestran el total. La casilla solo existe si el producto está activo.
-  var upsell = document.getElementById("adh-upsell");
-  var upsellTotal = document.getElementById("adh-upsell-total");
-  var actual = { url: "", precio: "" };
-  function aNumero(p){ return parseInt(String(p).replace(/\D/g, ""), 10) || 0; }
-  function aPesos(n){ return "$" + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+  var actual = { url: "", precio: "" };   // link y precio vigentes (cambian cuando termina el contador)
+  var popRender = null;                   // se define abajo si hay upsells activos
   function setLink(url, precio){
     actual.url = url; actual.precio = precio;
-    var conGuia = !!(upsell && upsell.checked);
-    var link = url, texto = precio;
-    if (conGuia) {
-      if (url) link = url + "," + upsell.getAttribute("data-variante") + ":1";
-      texto = aPesos(aNumero(precio) + aNumero(upsell.getAttribute("data-precio")));
-    }
-    payBtns.forEach(function(a){ if (link) a.href = link; });
-    payTxt.forEach(function(s){ s.textContent = "Obtener por " + texto; });
-    if (upsellTotal) {
-      upsellTotal.hidden = !conGuia;
-      upsellTotal.textContent = conGuia ? "Total con la Guía de Hilos: " + texto : "";
-    }
+    payBtns.forEach(function(a){ if (url) a.href = url; });
+    payTxt.forEach(function(s){ s.textContent = "Obtener por " + precio; });
+    if (popRender) popRender();
   }
-  // Precio que muestra la píldora flotante: suma la guía si está tildada.
-  function conGuia(precio){
-    return (upsell && upsell.checked) ? aPesos(aNumero(precio) + aNumero(upsell.getAttribute("data-precio"))) : precio;
+
+  // Pop-up de upsells: al tocar cualquier botón de compra se abre antes de ir al pago.
+  // Lo que se agrega suma su variante al link del carrito ("/cart/paquete:1,upsell:1").
+  var pop = document.getElementById("adh-pop");
+  var ups = pop ? pop.querySelectorAll("[data-up]") : [];
+  function aNumero(p){ return parseInt(String(p).replace(/\D/g, ""), 10) || 0; }
+  function aPesos(n){ return "$" + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+  if (pop && ups.length && typeof pop.showModal === "function") {
+    var popBase = document.getElementById("adh-pop-base");
+    var popTotal = document.getElementById("adh-pop-total");
+    var popPagar = document.getElementById("adh-pop-pagar");
+    var popPagarTxt = document.getElementById("adh-pop-pagar-txt");
+    popRender = function(){
+      var total = aNumero(actual.precio), extra = "";
+      ups.forEach(function(u){
+        var on = u.querySelector("[data-up-btn]").getAttribute("aria-pressed") === "true";
+        u.classList.toggle("is-on", on);
+        if (on) { total += aNumero(u.getAttribute("data-precio")); extra += "," + u.getAttribute("data-variante") + ":1"; }
+      });
+      popBase.textContent = actual.precio;
+      popTotal.textContent = aPesos(total);
+      popPagarTxt.textContent = "Ir a pagar " + aPesos(total);
+      if (actual.url) popPagar.href = actual.url + extra;
+    };
+    ups.forEach(function(u){
+      var b = u.querySelector("[data-up-btn]");
+      b.addEventListener("click", function(){
+        var on = b.getAttribute("aria-pressed") !== "true";
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+        b.textContent = on ? "✓ Agregado" : "+ Agregar";
+        popRender();
+      });
+    });
+    payBtns.forEach(function(a){
+      a.addEventListener("click", function(e){
+        if (!actual.url) return;
+        e.preventDefault();
+        popRender();
+        pop.showModal();
+        document.documentElement.style.overflow = "hidden";
+      });
+    });
+    pop.addEventListener("close", function(){ document.documentElement.style.overflow = ""; });
+    pop.querySelectorAll("[data-pop-cerrar]").forEach(function(b){ b.addEventListener("click", function(){ pop.close(); }); });
+    pop.addEventListener("click", function(e){ if (e.target === pop) pop.close(); }); // tocar afuera cierra
   }
-  if (upsell) upsell.addEventListener("change", function(){
-    setLink(actual.url, actual.precio);
-    el.fijaPrecio.textContent = conGuia(actual.precio);
-  });
   var timer;
   function tick(){
     var ms = fin - Date.now();
@@ -866,7 +936,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
       el.precio.textContent = CONFIG.precioNormal;
       el.relojTxt.textContent = navidad ? "La oferta de Navidad terminó." : "El precio de lanzamiento terminó.";
       el.reloj.hidden = true;
-      el.fijaPrecio.textContent = conGuia(CONFIG.precioNormal);
+      el.fijaPrecio.textContent = CONFIG.precioNormal;
       el.fijaTxt.textContent = "Precio regular";
       setLink(CONFIG.linkDePagoNormal, CONFIG.precioNormal);
       return;
@@ -875,7 +945,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
     var t = (m < 10 ? "0" : "") + m + ":" + (r < 10 ? "0" : "") + r;
     el.precio.textContent = CONFIG.precioLanzamiento;
     el.reloj.textContent = t;
-    el.fijaPrecio.textContent = conGuia(CONFIG.precioLanzamiento);
+    el.fijaPrecio.textContent = CONFIG.precioLanzamiento;
     el.fijaTxt.textContent = "Termina en " + t;
   }
   setLink(CONFIG.linkDePago, CONFIG.precioLanzamiento);
