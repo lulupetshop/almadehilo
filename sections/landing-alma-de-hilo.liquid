@@ -86,7 +86,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
 .adh-foto--cuadrada{aspect-ratio:1/1}
 .adh-video{display:block;width:100%;height:auto;max-width:300px;max-height:80vh;margin:0 auto;border-radius:var(--adh-radio);background:var(--adh-nude-suave);object-fit:cover}
 .adh-video--portada{max-width:min(220px,58vw);aspect-ratio:3/4}
-.adh-video--dentro{aspect-ratio:498/1080}
+.adh-video--dentro{aspect-ratio:560/720;max-width:340px;border-radius:0;background:transparent;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent),linear-gradient(180deg,transparent,#000 5%,#000 95%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent),linear-gradient(180deg,transparent,#000 5%,#000 95%,transparent);mask-composite:intersect}
 .adh-logo{display:inline-block;padding:14px}  /* espacio libre ≈ altura de la "A" del logo de 44px */
 .adh-logo-slot{display:inline-block;border:1.5px dashed var(--adh-arcilla);border-radius:var(--adh-radio);color:var(--adh-topo);font-size:.78rem;letter-spacing:.08em;padding:8px 14px;text-align:center}
 
@@ -447,7 +447,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
       <!-- El botón con el precio va antes del video para que se vea sin bajar en el celular -->
       <a class="adh-btn" id="adh-hero-cta" href="#oferta" data-adh-cta data-pay><span data-pay-txt>Obtener por $19.990</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       <p class="adh-regalo-tag">🎁 + 6 ebooks exclusivos de regalo<span class="adh-nav"> · 30 patrones navideños</span></p>
-      <div class="adh-foto adh-foto--portada" data-adh-video="videoPortadaUrl" data-video-liviano="videoPortadaLiviano" data-poster="videoPortadaPoster" data-video-class="adh-video adh-video--portada" data-ancho="482" data-alto="720">[VIDEO: portada]</div>
+      <div class="adh-foto adh-foto--portada" data-adh-video="videoPortadaUrl" data-respaldo="videoPortadaRespaldo" data-poster="videoPortadaPoster" data-video-class="adh-video adh-video--portada" data-ancho="480" data-alto="640">[VIDEO: portada]</div>
       <div class="adh-micro adh-micro--ovillo"><span>Para toda la vida</span><svg class="adh-ovillo" viewBox="0 0 16 16" aria-hidden="true"><circle class="o-bola" cx="7.5" cy="7.5" r="6.2"/><path class="o-hebra" d="M2.6 6c3-1.5 6.8-1.4 9.8.3M2.2 8.9c3.3-1.3 7.1-1.1 10.3.6M4.8 2.3c-.9 3.3-.6 7.3 1.3 10.3M9.2 1.6c-1.3 3.5-1.1 8.3.8 11.6"/><path class="o-cola" d="M12.6 11.4c1 .8 1.7 1.9 2.1 3.2"/></svg><span>Descarga inmediata</span></div>
     </div>
   </header>
@@ -459,7 +459,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
       <p class="adh-label">Un vistazo adentro</p>
       <h2>Así se ve por dentro</h2>
       <p>Recorré el ebook antes de comprarlo.</p>
-      <div class="adh-foto" data-adh-video="videoPorDentroUrl" data-poster="videoPorDentroPoster" data-diferido data-video-class="adh-video adh-video--dentro" data-ancho="332" data-alto="720">[VIDEO: pordentro.mp4]</div>
+      <div class="adh-foto" data-adh-video="videoPorDentroUrl" data-respaldo="videoPorDentroRespaldo" data-poster="videoPorDentroPoster" data-diferido data-video-class="adh-video adh-video--dentro" data-ancho="560" data-alto="720">[VIDEO: pordentro.mp4]</div>
       <p class="adh-label">Lo que ya están creando</p>
       <div class="adh-resenas">
         <figure class="adh-resena adh-resena--ig">
@@ -775,12 +775,14 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
     formato: "",                     // ej. "PDF"
     entrega: "Descarga inmediata",
     garantiaDias: "",                // SOLO si hay garantía real, ej. "7". Vacío = no se muestra.
-    // Videos: versión HD, versión liviana (conexiones lentas o ahorro de datos) e imagen de portada que se ve al instante.
-    videoPortadaUrl: "https://cdn.shopify.com/videos/c/vp/f418797fc8b84999a5465283fdb53689/f418797fc8b84999a5465283fdb53689.HD-720p-4.5Mbps-99397307.mp4",
-    videoPortadaLiviano: "https://cdn.shopify.com/videos/c/vp/f418797fc8b84999a5465283fdb53689/f418797fc8b84999a5465283fdb53689.SD-480p-1.5Mbps-99397307.mp4",
-    videoPortadaPoster: "https://cdn.shopify.com/s/files/1/1101/8210/5374/files/preview_images/f418797fc8b84999a5465283fdb53689.thumbnail.0000000000.jpg?v=1793328131&width=480",
-    videoPorDentroUrl: "https://cdn.shopify.com/videos/c/vp/5c2d959d764e4c87bfad6a5667013baa/5c2d959d764e4c87bfad6a5667013baa.HD-720p-4.5Mbps-99397308.mp4", // se carga recién al llegar a esa parte
-    videoPorDentroPoster: "https://cdn.shopify.com/s/files/1/1101/8210/5374/files/preview_images/5c2d959d764e4c87bfad6a5667013baa.thumbnail.0000000000.jpg?v=1793328137&width=480",
+    // Videos: archivo propio del tema (liviano, armado para la landing), respaldo en Shopify Archivos por si el
+    // primero no carga, e imagen de portada que se ve al instante.
+    videoPortadaUrl: "{{ 'alma-portada-paginas.mp4' | asset_url }}",   // 8 s, pase de hoja del Bloque 1 · 231 KB
+    videoPortadaRespaldo: "https://cdn.shopify.com/videos/c/vp/182f04e9053b48b59168a3230a9d96ca/182f04e9053b48b59168a3230a9d96ca.SD-480p-0.9Mbps-101400668.mp4",
+    videoPortadaPoster: "https://cdn.shopify.com/s/files/1/1101/8210/5374/files/alma-portada-paginas-poster.jpg?v=1794700363",
+    videoPorDentroUrl: "{{ 'alma-por-dentro-tablet.mp4' | asset_url }}", // 14 s, scroll del ebook en tablet · 866 KB · se carga al llegar
+    videoPorDentroRespaldo: "https://cdn.shopify.com/videos/c/vp/c60a8ec2dc8043b6b58190a8761232c7/c60a8ec2dc8043b6b58190a8761232c7.SD-480p-0.9Mbps-101400670.mp4",
+    videoPorDentroPoster: "https://cdn.shopify.com/s/files/1/1101/8210/5374/files/alma-por-dentro-tablet-poster.jpg?v=1794700363",
     email: "almadehilo12@gmail.com",
     instagram: "@alma.dehiloo",
     navidadHasta: "2026-12-26T00:00:00-03:00" // fin de la decoración navideña (medianoche del 25, hora Argentina). Vacío = sin Navidad.
@@ -815,9 +817,8 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   });
 
   // Videos: reemplazan su recuadro cuando hay link. Muestran su portada al instante, el de "por dentro" se descarga
-  // recién cuando la persona se acerca, y cada video se pausa cuando sale de pantalla (ahorra datos y batería).
-  var conexion = navigator.connection || {};
-  var lenta = !!conexion.saveData || /(^|-)(2g|3g)$/.test(conexion.effectiveType || "");
+  // recién cuando la persona se acerca, cada video se pausa cuando sale de pantalla (ahorra datos y batería)
+  // y si el archivo del tema no carga se usa el respaldo de Shopify Archivos.
   var hayIO = "IntersectionObserver" in window;
   var vistaVideo = hayIO ? new IntersectionObserver(function(entries){
     entries.forEach(function(e){
@@ -830,8 +831,7 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
   }, { rootMargin: "300px 0px" }) : null;
   root.querySelectorAll("[data-adh-video]").forEach(function(slot){
     var url = CONFIG[slot.getAttribute("data-adh-video")];
-    var liviano = CONFIG[slot.getAttribute("data-video-liviano")];
-    if (lenta && liviano) url = liviano;
+    var respaldo = CONFIG[slot.getAttribute("data-respaldo")];
     if (!url) return;
     var v = document.createElement("video");
     // Sin controles: se reproduce solo, mudo y en bucle (el celular solo permite autoplay con el video mudo).
@@ -842,6 +842,11 @@ body{background:var(--adh-crema);color:var(--adh-topo)}
     var poster = CONFIG[slot.getAttribute("data-poster")];
     if (poster) v.poster = poster;
     v.className = slot.getAttribute("data-video-class") || "adh-video";
+    if (respaldo) v.addEventListener("error", function(){
+      if (v.getAttribute("src") === respaldo || !v.getAttribute("src")) return;
+      v.src = respaldo; v.load();
+      var p = v.play(); if (p && p.catch) p.catch(function(){});
+    });
     var diferido = slot.hasAttribute("data-diferido") && vistaVideo;
     if (diferido) { v.preload = "none"; v.dataset.src = url; }
     else { v.preload = "auto"; v.autoplay = true; v.src = url; }
