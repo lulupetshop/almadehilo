@@ -107,8 +107,7 @@ Botón **"Ver otra pieza"** → vuelve al Mensaje 1.
 - [ ] **EMPIEZO 3/4:** nombre, foto, metros, tiempo y nudos de la primera pieza del plan.
 - [ ] **EMPIEZO 4/4:** ajustar el plan de 7 días para que coincida con el del ebook.
 - [ ] **EMPIEZO 1/4:** metros de cuerda de la primera pieza.
-- [ ] **NUDO 2/4:** 3 fotos del paso a paso, idealmente con dos cordones de colores distintos.
-- [ ] **NUDO 3/4:** foto de una tira mal hecha, que gire como espiral.
+- [x] **NUDO 2/4 y 3/4:** listos, con diagramas por colores (izquierdo rosa, derecho marrón, quietos beige).
 - [ ] **PIZARRA:** confirmar que las 3 piezas están en el ebook, en qué sección, y completar nivel, metros, materiales, tiempo y nudos.
 - [ ] **PIZARRA:** confirmar que las fotos son tuyas o con permiso para usarlas.
 - [ ] **Link:** el mismo en todos los mensajes, con UTM para medir de qué palabra viene cada venta.
