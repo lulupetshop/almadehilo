@@ -23,7 +23,7 @@ Navidad
 ```
 Las de navidad las sacás después del 25/12.
 
-## Mensaje privado (622 caracteres de 1000)
+## Mensaje privado (488 caracteres de 1000)
 ```
 ¡Hola! 🧶 Gracias por comentar, soy de Alma de Hilo 💛
 
